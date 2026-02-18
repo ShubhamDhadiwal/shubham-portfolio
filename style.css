@@ -94,3 +94,10 @@ footer {
 .resume-btn:hover {
     background: #e6f2ff;
 }
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    color: #333;
+    background: #f5f7fa;
+}
