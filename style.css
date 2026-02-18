@@ -1,6 +1,6 @@
-/* --- Global Container for proper margins --- */
+/* Global container spacing for all sections */
 section {
-  padding: 60px 20px; /* vertical spacing */
+  padding: 60px 20px;
   margin: 0 auto;
   max-width: 1000px; /* prevents stretching on large screens */
 }
@@ -9,65 +9,34 @@ section {
 .timeline {
   position: relative;
   margin: 40px auto;
-  padding-left: 40px; /* extra spacing from timeline line */
+  padding-left: 40px; /* spacing from timeline line */
   max-width: 900px;
 }
 
-/* Job card spacing and readable width */
+/* Job card spacing for readability */
 .job-card {
-  background: #fff;
-  padding: 25px 25px 25px 50px; /* more padding for readability */
+  padding: 25px 25px 25px 50px;
   margin-bottom: 40px;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-  position: relative;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: transform 0.6s ease, opacity 0.6s ease;
 }
 
-/* Skills section container */
+/* Skills container spacing */
 .skills {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 25px; /* space between skill cards */
+  gap: 25px;
   margin: 20px auto 60px;
   max-width: 900px;
 }
 
-/* Skill card adjustments */
-.skill {
-  background: #fff;
-  border-radius: 12px;
-  padding: 25px;
-  width: 180px; /* slightly larger for desktop */
-  text-align: center;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.6s ease;
-}
-
-/* Hero Section adjustments for spacing */
+/* Hero section padding */
 .hero {
-  background: linear-gradient(120deg, #0078d4, #00c6ff);
-  color: #fff;
-  text-align: center;
-  padding: 100px 20px; /* more vertical space for hero */
-  position: relative;
-  overflow: hidden;
+  padding: 100px 20px;
 }
 
-/* Section titles spacing */
-section h2 {
-  text-align: center;
-  margin: 60px 0 30px; /* more spacing for desktop readability */
-  font-size: 2em;
-  color: #0078d4;
-}
-
-/* Media Queries for responsiveness */
+/* Responsive adjustments */
 @media(max-width: 1024px) {
   .job-card { padding: 20px 20px 20px 40px; }
   .skills { gap: 20px; }
