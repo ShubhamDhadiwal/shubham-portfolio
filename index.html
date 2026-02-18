@@ -9,10 +9,21 @@
 </head>
 <body>
 
+<!-- Loading Screen -->
+<div class="loading-screen" id="loadingScreen">
+  <div class="sun-moon">
+    <div class="sun"></div>
+    <div class="moon"></div>
+  </div>
+</div>
+
 <!-- Logo -->
 <a href="#top" class="logo">
-  <img src="Picsart_26-02-19_02-12-00-522.png" alt="Shubham Logo">
+  <img src="logo.png" alt="Shubham Logo">
 </a>
+
+<!-- Dark Mode Toggle -->
+<button id="darkToggle" class="dark-toggle">🌙</button>
 
 <!-- Hero Section -->
 <section class="hero" id="top">
@@ -25,9 +36,9 @@
   <h2>Work Experience</h2>
   <div class="timeline">
 
-    <div class="job-card animate">
+    <div class="job-card animate-left">
       <h3>TECH LEAD</h3>
-      <em>Cognizant Technology India Pvt Ltd | Pune, MH 411057 | 29 APR 2022 – PRESENT</em>
+      <em>Cognizant Technology India Pvt Ltd | Pune, MH | 29 APR 2022 – PRESENT</em>
       <ul>
         <li>Expert in Microsoft 365 administration (Exchange, Teams, SharePoint, OneDrive).</li>
         <li>Led migrations from on-prem file servers to Teams and SharePoint using ShareGate.</li>
@@ -37,9 +48,9 @@
       </ul>
     </div>
 
-    <div class="job-card animate">
+    <div class="job-card animate-right">
       <h3>IT SYSTEM ADMINISTRATOR</h3>
-      <em>Span Pumps Pvt Ltd | Pune, MH 411045 | 01 SEP 2021 – 09 SEP 2022</em>
+      <em>Span Pumps Pvt Ltd | Pune, MH | 01 SEP 2021 – 09 SEP 2022</em>
       <ul>
         <li>Implemented Microsoft 365 security features including MFA, Conditional Access, and VPN.</li>
         <li>Conducted SharePoint audits, compliance checks, and governance policy implementation.</li>
@@ -47,7 +58,7 @@
       </ul>
     </div>
 
-    <div class="job-card animate">
+    <div class="job-card animate-left">
       <h3>IT SYSTEM ENGINEER</h3>
       <em>Span Pumps Pvt Ltd | Chennai, TN | 21 JAN 2021 – 31 AUG 2021</em>
       <ul>
@@ -59,6 +70,32 @@
       </ul>
     </div>
 
+    <div class="job-card animate-right">
+      <h3>DESKTOP SUPPORT ENGINEER</h3>
+      <em>Excelsior Research Pvt Ltd | Pune, MH | 05 JUN 2019 – 19 JAN 2021</em>
+      <ul>
+        <li>Provided Level 2/3 support for Office 365 applications (Word, Excel, Teams) and SharePoint.</li>
+        <li>Managed user access, document libraries, and troubleshooting to enhance collaboration.</li>
+        <li>Assisted with migrations between Office 365 environments.</li>
+        <li>Implemented security measures and backup solutions to safeguard sensitive data.</li>
+        <li>Monitored system performance, applied upgrades/patches, and ensured LAN connectivity.</li>
+        <li>Delivered user training and documented best practices.</li>
+      </ul>
+    </div>
+
+    <div class="job-card animate-left">
+      <h3>DESKTOP SUPPORT ENGINEER (Junior)</h3>
+      <em>Excelsior Research Pvt Ltd | Pune, MH | JUN 2019 – JAN 2020</em>
+      <ul>
+        <li>Assisted Desktop Support Engineers in troubleshooting Office 365 applications and SharePoint issues.</li>
+        <li>Supported user account setup, permissions, and basic network configurations.</li>
+        <li>Helped with system upgrades, patches, and proactive monitoring to reduce downtime.</li>
+        <li>Provided Tier-1 support for end-users, escalating complex issues to senior engineers.</li>
+        <li>Documented support activities and contributed to knowledge base.</li>
+        <li>Ensured smooth daily operations by coordinating with IT teams.</li>
+      </ul>
+    </div>
+
   </div>
 </section>
 
@@ -66,173 +103,25 @@
 <section id="skills">
   <h2>Technical Skills</h2>
   <div class="skills">
-    <div class="skill animate">
+    <div class="skill animate-bottom">
       <h4>Microsoft 365</h4>
       <p>Exchange, Teams, SharePoint, OneDrive</p>
     </div>
-    <div class="skill animate">
+    <div class="skill animate-bottom">
       <h4>PowerShell</h4>
       <p>Automation & Administration</p>
     </div>
-    <div class="skill animate">
+    <div class="skill animate-bottom">
       <h4>ShareGate</h4>
       <p>Migration & Permissions</p>
     </div>
-    <div class="skill animate">
+    <div class="skill animate-bottom">
       <h4>Networking</h4>
       <p>OSI Model, TCP/IP, LAN</p>
     </div>
   </div>
 </section>
 
-<script>
-// Simple scroll animation
-const animateElements = document.querySelectorAll('.animate');
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('fade-in');
-    }
-  });
-}, { threshold: 0.2 });
-
-animateElements.forEach(el => observer.observe(el));
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
-        Certified Microsoft 365 professional with 7+ years of experience in Exchange 
-        (Online & On-Prem), Teams administration, hybrid environments, email migrations, 
-        security implementation, and automation using PowerShell. 
-        Passionate about building secure, scalable, and efficient collaboration platforms.
-    </p>
-</section>
-
-<section id="skills">
-    <h2>Core Expertise</h2>
-    <div class="skill-grid">
-        <div>Microsoft 365 Administration</div>
-        <div>Exchange Online & On-Prem</div>
-        <div>Microsoft Teams (Voice + IVR)</div>
-        <div>SharePoint Governance</div>
-        <div>OneDrive Management</div>
-        <div>ShareGate Migration</div>
-        <div>PowerShell Automation</div>
-        <div>Azure AD & Security</div>
-        <div>MFA & Conditional Access</div>
-    </div>
-</section>
-
-<section id="experience">
-  <h2>Work Experience</h2>
-
-  <div class="job">
-    <h3>TECH LEAD</h3>
-    <p><em>Cognizant Technology India Pvt Ltd | Pune, MH 411057</em></p>
-    <p><em>29 APRIL 2022 – PRESENT</em></p>
-    <ul>
-      <li>Expert in Microsoft 365 administration with hands-on experience in Exchange (Online & On-Prem), Teams, SharePoint, and OneDrive.</li>
-      <li>Led seamless migrations from on-prem file servers to Teams and SharePoint using ShareGate, ensuring permissions integrity and improved collaboration.</li>
-      <li>Strengthened email security by implementing transport rules, connectors, and anti-spam measures, reducing threats and improving compliance.</li>
-      <li>Enhanced Teams telephony infrastructure with call queues, auto attendants, IVRs, and resource accounts, streamlining communication workflows.</li>
-      <li>Automated administration tasks using PowerShell modules (ExchangeOnlineManagement, MSOnline, AzureAD, MicrosoftTeams) to improve efficiency.</li>
-    </ul>
-  </div>
-
-  <div class="job">
-    <h3>IT SYSTEM ADMINISTRATOR</h3>
-    <p><em>Span Pumps Pvt Ltd | Pune, MH 411045</em></p>
-    <p><em>01 SEP 2021 – 09 SEP 2022</em></p>
-    <ul>
-      <li>Implemented Microsoft 365 security features including MFA, Conditional Access, and VPN configurations to enhance system security.</li>
-      <li>Conducted SharePoint audits, compliance checks, and governance policy implementation.</li>
-      <li>Designed customized SharePoint solutions, streamlined document management with libraries, metadata, and versioning.</li>
-    </ul>
-  </div>
-
-  <div class="job">
-    <h3>IT SYSTEM ENGINEER</h3>
-    <p><em>Span Pumps Pvt Ltd | Precision Infomatic (M) Pvt Ltd (Payroll) | Chennai, TN 600017</em></p>
-    <p><em>21 JAN 2021 – 31 AUG 2021</em></p>
-    <ul>
-      <li>Assisted in managing Microsoft 365/O365 environments including Exchange, SharePoint, Teams, and Active Directory.</li>
-      <li>Configured user accounts, group policies, and basic permissions to support onboarding and access management.</li>
-      <li>Supported migrations (IMAP, G Suite, file servers) by preparing data and troubleshooting issues.</li>
-      <li>Monitored system performance and network connectivity using OSI Model and TCP/IP fundamentals.</li>
-      <li>Helped implement security features such as MFA, VPN, and conditional access under senior guidance.</li>
-      <li>Provided Tier-1/Tier-2 support for O365 applications and SharePoint, ensuring minimal downtime.</li>
-    </ul>
-  </div>
-
-  <div class="job">
-    <h3>DESKTOP SUPPORT ENGINEER</h3>
-    <p><em>Excelsior Research Pvt Ltd | Pune, MH</em></p>
-    <p><em>05 JUN 2019 – 19 JAN 2021</em></p>
-    <ul>
-      <li>Provided Level 2/3 support for Office 365 applications (Word, Excel, Teams) and SharePoint environments.</li>
-      <li>Managed user access, document libraries, and troubleshooting to enhance collaboration and data integrity.</li>
-      <li>Assisted with migrations between Office 365 environments, ensuring minimal disruption.</li>
-      <li>Implemented security measures and backup solutions to safeguard sensitive data.</li>
-      <li>Monitored system performance, applied upgrades/patches, and ensured seamless LAN connectivity.</li>
-      <li>Delivered user training and documented best practices, improving adoption and knowledge sharing.</li>
-    </ul>
-  </div>
-
-  <div class="job">
-    <h3>DESKTOP SUPPORT ENGINEER</h3>
-    <p><em>Excelsior Research Pvt Ltd | Pune, MH</em></p>
-    <p><em>JUN 2019 – JAN 2020</em></p>
-    <ul>
-      <li>Assisted Desktop Support Engineers in troubleshooting Office 365 applications and SharePoint issues.</li>
-      <li>Supported user account setup, permissions, and basic network configurations.</li>
-      <li>Helped with system upgrades, patches, and proactive monitoring to reduce downtime.</li>
-      <li>Provided Tier-1 support for end-users, escalating complex issues to senior engineers.</li>
-      <li>Documented support activities and contributed to knowledge base for process improvement.</li>
-      <li>Ensured smooth daily operations by coordinating with IT teams and maintaining positive customer relations.</li>
-    </ul>
-  </div>
-</section>
-
-
-</section>
-
-<section id="projects">
-    <h2>Featured Project</h2>
-
-    <div class="card">
-        <h3>SLA365 – Performance Monitoring Tool</h3>
-        <p>
-            Designed SLA365 during Cognizant VibeCoding Event using Lovable.ai. 
-            Automated SLA reporting, performance tracking, and insights generation.
-        </p>
-        <a href="https://sla365.lovable.app" target="_blank">View Project</a>
-    </div>
-
-</section>
-
-<section id="contact">
-    <h2>Contact</h2>
-    <p>Email: Shubham.Dhadiwal@outlook.com</p>
-    <p>Phone: +91 7020086337</p>
-    <p>Location: Pune, India</p>
-</section>
-
-<footer>
-    <p>© 2026 Shubham Dhadiwal | Microsoft 365 Specialist</p>
-</footer>
-
-</body>
-    <script>
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
-    </script>
-    
-</html>
-
