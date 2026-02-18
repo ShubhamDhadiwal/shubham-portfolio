@@ -74,16 +74,18 @@ h2 {
 }
 
 .skill-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
+.skill-grid div {
+    background: #e0f0ff;
+    padding: 20px;
+    border-radius: 12px;
+    font-weight: 500;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
 }
 
-.skill-grid div {
-    background: white;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+.skill-grid div:hover {
+    transform: translateY(-5px);
 }
 
 .card {
