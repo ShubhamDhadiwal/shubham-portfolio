@@ -129,3 +129,40 @@ body {
     color: #333;
     background: #f5f7fa;
 }
+#experience {
+  padding: 40px 20px;
+}
+
+#experience h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.job {
+  margin-bottom: 30px;
+}
+
+.job h3 {
+  font-size: 1.4em;
+  margin-bottom: 5px;
+  color: #0078d4;
+}
+
+.job em {
+  display: block;
+  font-style: italic;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.job ul {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.job ul li {
+  margin-bottom: 5px;
+  line-height: 1.5;
+}
+    
