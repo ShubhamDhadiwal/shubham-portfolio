@@ -1,207 +1,91 @@
-/* General Reset */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Inter', sans-serif;
+/* --- Global Container for proper margins --- */
+section {
+  padding: 60px 20px; /* vertical spacing */
+  margin: 0 auto;
+  max-width: 1000px; /* prevents stretching on large screens */
 }
 
-body {
-  background: #f9f9f9;
-  color: #222;
-  line-height: 1.6;
-}
-
-/* Logo */
-.logo {
-  position: fixed;
-  top: 15px;
-  left: 15px;
-  z-index: 100;
-  display: block;
-}
-
-.logo img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  transition: transform 0.3s;
-}
-
-.logo img:hover {
-  transform: scale(1.1);
-}
-
-/* Hero Section */
-.hero {
-  background: linear-gradient(120deg, #0078d4, #00c6ff);
-  color: #fff;
-  text-align: center;
-  padding: 80px 20px;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero h1 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 2.5em;
-  margin-bottom: 10px;
-}
-
-.hero h2 {
-  font-size: 1.5em;
-  font-weight: 400;
-  animation: typing 3s steps(40, end), blink 0.7s infinite;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 4px solid #fff;
-  display: inline-block;
-}
-
-/* Typing effect */
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
-}
-@keyframes blink {
-  50% { border-color: transparent; }
-}
-
-/* Section Titles */
-section h2 {
-  text-align: center;
-  margin: 40px 0 20px;
-  font-size: 2em;
-  color: #0078d4;
-}
-
-/* Timeline */
+/* Timeline container spacing */
 .timeline {
   position: relative;
-  margin: 40px 0;
-  padding-left: 20px;
+  margin: 40px auto;
+  padding-left: 40px; /* extra spacing from timeline line */
+  max-width: 900px;
 }
 
-.timeline::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 15px;
-  width: 4px;
-  height: 100%;
-  background: #0078d4;
-  border-radius: 2px;
-}
-
+/* Job card spacing and readable width */
 .job-card {
   background: #fff;
-  padding: 20px 20px 20px 40px;
-  margin-bottom: 30px;
-  border-radius: 10px;
+  padding: 25px 25px 25px 50px; /* more padding for readability */
+  margin-bottom: 40px;
+  border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
   position: relative;
-  transition: transform 0.3s, box-shadow 0.3s;
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(30px);
+  transition: transform 0.6s ease, opacity 0.6s ease;
 }
 
-.job-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
-}
-
-.job-card::before {
-  content: '';
-  position: absolute;
-  left: -26px;
-  top: 20px;
-  width: 12px;
-  height: 12px;
-  background: #00c6ff;
-  border-radius: 50%;
-  border: 3px solid #0078d4;
-}
-
-.job-card h3 {
-  font-family: 'Poppins', sans-serif;
-  color: #0078d4;
-  margin-bottom: 5px;
-}
-
-.job-card em {
-  font-style: italic;
-  color: #555;
-  font-size: 0.9em;
-  display: block;
-  margin-bottom: 10px;
-}
-
-.job-card ul {
-  padding-left: 20px;
-}
-
-.job-card ul li {
-  margin-bottom: 6px;
-  line-height: 1.5;
-  font-size: 0.9em;
-}
-
-/* Skills Section */
+/* Skills section container */
 .skills {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 15px;
-  margin: 20px 0 60px;
+  gap: 25px; /* space between skill cards */
+  margin: 20px auto 60px;
+  max-width: 900px;
 }
 
+/* Skill card adjustments */
 .skill {
   background: #fff;
-  border-radius: 10px;
-  padding: 20px;
-  width: 150px;
+  border-radius: 12px;
+  padding: 25px;
+  width: 180px; /* slightly larger for desktop */
   text-align: center;
   box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-  transition: transform 0.3s, box-shadow 0.3s;
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(30px);
+  transition: all 0.6s ease;
 }
 
-.skill:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+/* Hero Section adjustments for spacing */
+.hero {
+  background: linear-gradient(120deg, #0078d4, #00c6ff);
+  color: #fff;
+  text-align: center;
+  padding: 100px 20px; /* more vertical space for hero */
+  position: relative;
+  overflow: hidden;
 }
 
-.skill h4 {
+/* Section titles spacing */
+section h2 {
+  text-align: center;
+  margin: 60px 0 30px; /* more spacing for desktop readability */
+  font-size: 2em;
   color: #0078d4;
-  margin-bottom: 10px;
 }
 
-.skill p {
-  font-size: 0.85em;
-  color: #555;
+/* Media Queries for responsiveness */
+@media(max-width: 1024px) {
+  .job-card { padding: 20px 20px 20px 40px; }
+  .skills { gap: 20px; }
+  .skill { width: 150px; padding: 20px; }
 }
 
-/* Fade-in animation */
-.fade-in {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-  transition: all 0.6s ease-out;
-}
-
-/* Mobile Responsiveness */
 @media(max-width: 768px) {
-  .hero h1 { font-size: 2em; }
-  .hero h2 { font-size: 1.2em; }
-  .job-card { padding: 15px 15px 15px 35px; }
-  .skills { gap: 10px; }
-  .skill { width: 120px; padding: 15px; }
+  section { padding: 50px 15px; }
+  .job-card { padding: 18px 18px 18px 35px; }
+  .skills { gap: 15px; }
+  .skill { width: 130px; padding: 15px; }
 }
 
 @media(max-width: 480px) {
+  section { padding: 40px 10px; }
   .hero h1 { font-size: 1.6em; }
   .hero h2 { font-size: 1em; }
-  section h2 { font-size: 1.5em; }
   .job-card { padding: 15px 15px 15px 30px; }
+  .skills { gap: 10px; }
   .skill { width: 100px; padding: 10px; }
 }
