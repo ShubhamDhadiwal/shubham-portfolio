@@ -1,39 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
-    <meta charset="UTF-8">
-    <title>Shubham Dhadiwal | M365 Infra Developer</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shubham Dhadiwal Portfolio</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<header>
-    <nav>
-        <h2>Shubham Dhadiwal</h2>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-</header>
+<!-- Logo -->
+<a href="#top" class="logo">
+  <img src="logo.png" alt="Shubham Logo">
+</a>
 
-<section class="hero">
-    <h1>M365 Infra Developer</h1>
-    <p>Exchange | Teams | SharePoint | PowerShell | Hybrid Cloud</p>
-    <div class="hero-buttons">
-        <a href="https://www.linkedin.com/in/er-shubham-dhadiwal" target="_blank">LinkedIn</a>
-        <a href="Shubham Dhadiwal Resume 3.0.pdf" download class="resume-btn">Download Resume</a>
-        <a href="https://shubhamdhadiwal.wixsite.com/portfolio" target="_blank">Portfolio</a>
-    </div>
+<!-- Hero Section -->
+<section class="hero" id="top">
+  <h1>Shubham Dhadiwal</h1>
+  <h2>Tech Lead | Microsoft 365 Specialist | Teams & SharePoint</h2>
 </section>
 
-<section id="about">
-    <h2>About Me</h2>
-    <p>
+<!-- Work Experience Timeline -->
+<section id="experience">
+  <h2>Work Experience</h2>
+  <div class="timeline">
+
+    <div class="job-card animate">
+      <h3>TECH LEAD</h3>
+      <em>Cognizant Technology India Pvt Ltd | Pune, MH 411057 | 29 APR 2022 – PRESENT</em>
+      <ul>
+        <li>Expert in Microsoft 365 administration (Exchange, Teams, SharePoint, OneDrive).</li>
+        <li>Led migrations from on-prem file servers to Teams and SharePoint using ShareGate.</li>
+        <li>Strengthened email security via transport rules, connectors, and anti-spam measures.</li>
+        <li>Enhanced Teams telephony with call queues, auto attendants, IVRs, and resource accounts.</li>
+        <li>Automated admin tasks using PowerShell modules to improve efficiency.</li>
+      </ul>
+    </div>
+
+    <div class="job-card animate">
+      <h3>IT SYSTEM ADMINISTRATOR</h3>
+      <em>Span Pumps Pvt Ltd | Pune, MH 411045 | 01 SEP 2021 – 09 SEP 2022</em>
+      <ul>
+        <li>Implemented Microsoft 365 security features including MFA, Conditional Access, and VPN.</li>
+        <li>Conducted SharePoint audits, compliance checks, and governance policy implementation.</li>
+        <li>Designed customized SharePoint solutions, document libraries, metadata, and versioning.</li>
+      </ul>
+    </div>
+
+    <div class="job-card animate">
+      <h3>IT SYSTEM ENGINEER</h3>
+      <em>Span Pumps Pvt Ltd | Chennai, TN | 21 JAN 2021 – 31 AUG 2021</em>
+      <ul>
+        <li>Managed Microsoft 365/O365 environments: Exchange, SharePoint, Teams, Active Directory.</li>
+        <li>Configured accounts, group policies, and basic permissions for onboarding.</li>
+        <li>Supported migrations (IMAP, G Suite, file servers) and troubleshooting issues.</li>
+        <li>Monitored system performance & network connectivity using OSI/TCP-IP fundamentals.</li>
+        <li>Provided Tier-1/Tier-2 support for O365 applications and SharePoint.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills">
+  <h2>Technical Skills</h2>
+  <div class="skills">
+    <div class="skill animate">
+      <h4>Microsoft 365</h4>
+      <p>Exchange, Teams, SharePoint, OneDrive</p>
+    </div>
+    <div class="skill animate">
+      <h4>PowerShell</h4>
+      <p>Automation & Administration</p>
+    </div>
+    <div class="skill animate">
+      <h4>ShareGate</h4>
+      <p>Migration & Permissions</p>
+    </div>
+    <div class="skill animate">
+      <h4>Networking</h4>
+      <p>OSI Model, TCP/IP, LAN</p>
+    </div>
+  </div>
+</section>
+
+<script>
+// Simple scroll animation
+const animateElements = document.querySelectorAll('.animate');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('fade-in');
+    }
+  });
+}, { threshold: 0.2 });
+
+animateElements.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
         Certified Microsoft 365 professional with 7+ years of experience in Exchange 
         (Online & On-Prem), Teams administration, hybrid environments, email migrations, 
         security implementation, and automation using PowerShell. 
