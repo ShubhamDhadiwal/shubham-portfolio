@@ -1,60 +1,64 @@
-/* Global container spacing for all sections */
-section {
-  padding: 60px 20px;
-  margin: 0 auto;
-  max-width: 1000px; /* prevents stretching on large screens */
-}
+/* General Reset */
+* { box-sizing: border-box; margin:0; padding:0; font-family: 'Inter', sans-serif; }
+body { background: #f9f9f9; color:#222; line-height:1.6; transition: 0.5s all; }
 
-/* Timeline container spacing */
-.timeline {
-  position: relative;
-  margin: 40px auto;
-  padding-left: 40px; /* spacing from timeline line */
-  max-width: 900px;
-}
+/* Dark Mode */
+body.dark { background:#121212; color:#f1f1f1; }
+body.dark .job-card, body.dark .skill { background:#1e1e1e; box-shadow:0 6px 15px rgba(255,255,255,0.05);}
+body.dark section h2 { color:#00c6ff; }
 
-/* Job card spacing for readability */
-.job-card {
-  padding: 25px 25px 25px 50px;
-  margin-bottom: 40px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-}
+/* Loading Screen */
+.loading-screen { position:fixed; top:0; left:0; width:100%; height:100%; background:#0078d4; display:flex; justify-content:center; align-items:center; z-index:9999; }
+.sun-moon { position: relative; width:60px; height:60px; }
+.sun, .moon { position:absolute; width:60px; height:60px; border-radius:50%; }
+.sun { background:#FFD700; animation:sun-rise 2s ease forwards; }
+.moon { background:#F0F0F0; bottom:-80px; animation:moon-rise 2s ease forwards; }
+@keyframes sun-rise { 0%{transform:translateY(0);opacity:1}100%{transform:translateY(-100px);opacity:0} }
+@keyframes moon-rise { 0%{transform:translateY(80px);opacity:0}100%{transform:translateY(0);opacity:1} }
 
-/* Skills container spacing */
-.skills {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 25px;
-  margin: 20px auto 60px;
-  max-width: 900px;
-}
+/* Logo */
+.logo { position:fixed; top:15px; left:15px; z-index:100; }
+.logo img { width:50px; height:50px; border-radius:50%; transition:0.3s; }
+.logo img:hover { transform:scale(1.1); }
 
-/* Hero section padding */
-.hero {
-  padding: 100px 20px;
-}
+/* Dark Mode Toggle */
+.dark-toggle { position:fixed; top:20px; right:20px; z-index:100; background:none; border:none; font-size:1.5em; cursor:pointer; }
 
-/* Responsive adjustments */
-@media(max-width: 1024px) {
-  .job-card { padding: 20px 20px 20px 40px; }
-  .skills { gap: 20px; }
-  .skill { width: 150px; padding: 20px; }
-}
+/* Hero Section */
+.hero { background: linear-gradient(120deg,#0078d4,#00c6ff); color:#fff; text-align:center; padding:100px 20px; position:relative; overflow:hidden; }
+.hero h1 { font-family:'Poppins',sans-serif; font-size:2.5em; margin-bottom:10px; }
+.hero h2 { font-size:1.5em; font-weight:400; white-space:nowrap; overflow:hidden; border-right:4px solid #fff; display:inline-block; animation:typing 3s steps(50,end), blink 0.7s infinite; }
+@keyframes typing { from {width:0} to{width:100%} } @keyframes blink { 50%{border-color:transparent} }
 
-@media(max-width: 768px) {
-  section { padding: 50px 15px; }
-  .job-card { padding: 18px 18px 18px 35px; }
-  .skills { gap: 15px; }
-  .skill { width: 130px; padding: 15px; }
-}
+/* Sections */
+section { padding:60px 20px; margin:0 auto; max-width:1000px; }
+section h2 { text-align:center; margin:60px 0 30px; font-size:2em; color:#0078d4; }
 
-@media(max-width: 480px) {
-  section { padding: 40px 10px; }
-  .hero h1 { font-size: 1.6em; }
-  .hero h2 { font-size: 1em; }
-  .job-card { padding: 15px 15px 15px 30px; }
-  .skills { gap: 10px; }
-  .skill { width: 100px; padding: 10px; }
-}
+/* Timeline */
+.timeline { position:relative; margin:40px auto; padding-left:40px; max-width:900px; }
+.timeline::before { content:''; position:absolute; top:0; left:15px; width:4px; height:100%; background:#0078d4; border-radius:2px; }
+
+/* Job Cards */
+.job-card { background:#fff; padding:25px 25px 25px 50px; margin-bottom:40px; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.08); position:relative; opacity:0; transform:translateY(30px); transition:0.6s all;}
+.job-card::before { content:''; position:absolute; left:-26px; top:20px; width:12px; height:12px; background:#00c6ff; border-radius:50%; border:3px solid #0078d4; }
+.job-card h3 { font-family:'Poppins',sans-serif; color:#0078d4; margin-bottom:5px; }
+.job-card em { font-style:italic; color:#555; font-size:0.9em; display:block; margin-bottom:10px; }
+.job-card ul { padding-left:20px; } 
+.job-card ul li { margin-bottom:6px; line-height:1.5; font-size:0.9em; }
+
+/* Skills */
+.skills { display:flex; flex-wrap:wrap; justify-content:center; gap:25px; margin:20px auto 60px; max-width:900px; }
+.skill { background:#fff; border-radius:12px; padding:25px; width:180px; text-align:center; box-shadow:0 6px 15px rgba(0,0,0,0.08); opacity:0; transform:translateY(30px); transition:0.6s all; }
+.skill h4 { color:#0078d4; margin-bottom:10px; }
+.skill p { font-size:0.85em; color:#555; }
+
+/* Animations */
+.animate-left { transform:translateX(-50px); opacity:0; }
+.animate-right { transform:translateX(50px); opacity:0; }
+.animate-bottom { transform:translateY(50px); opacity:0; }
+.fade-in { transform:translateX(0) translateY(0); opacity:1; transition:0.7s all ease-out; }
+
+/* Responsive */
+@media(max-width:1024px){ .job-card{padding:20px 20px 20px 40px} .skills{gap:20px} .skill{width:150px; padding:20px} }
+@media(max-width:768px){ section{padding:50px 15px} .job-card{padding:18px 18px 18px 35px} .skills{gap:15px} .skill{width:130px;padding:15px} }
+@media(max-width:480px){ section{padding:40px 10px} .hero h1{font-size:1.6em} .hero h2{font-size:1em} .job-card{padding:15px 15px 15px 30px} .skills{gap:10px} .skill{width:100px;padding:10px} }
