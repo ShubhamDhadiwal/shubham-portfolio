@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shubham Dhadiwal | M365 Architect</title>
+    <title>Shubham Dhadiwal | Infrastructure Architect</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <nav class="navbar"><div class="container">
         <a href="login.html" class="logo">SD<span>.</span></a>
-        <ul class="nav-links">
-            <li><a href="index.html" class="active">About</a></li>
+        <ul class="nav-links" style="display:flex; list-style:none; gap:25px; margin-left:auto;">
+            <li><a href="index.html">About</a></li>
             <li><a href="experience.html">Experience</a></li>
             <li><a href="projects.html">Projects</a></li>
             <li><a href="contact.html" class="btn-connect">Let's Connect</a></li>
@@ -18,15 +18,41 @@
     </div></nav>
 
     <section class="container">
-        <div class="hero-content">
-            <span style="color: #0078d4; font-weight: bold; text-transform: uppercase;">Infrastructure Developer</span>
-            <h1>I'm <span>Shubham Dhadiwal</span></h1>
-            <p style="font-size: 1.2rem; max-width: 700px; color: #c5c6c7;">Tech Lead specializing in Microsoft 365. I bridge the gap between enterprise security and seamless collaboration through automation.</p>
-            
-            <div class="expertise-grid">
-                <div class="exp-item"><i class="fas fa-envelope-open-text" style="color:#0078d4; font-size:24px;"></i><h3>Messaging</h3><p>Exchange Online & Hybrid setups.</p></div>
-                <div class="exp-item"><i class="fas fa-shield-alt" style="color:#0078d4; font-size:24px;"></i><h3>Security</h3><p>Identity, Compliance & DLP.</p></div>
-                <div class="exp-item"><i class="fas fa-code" style="color:#0078d4; font-size:24px;"></i><h3>Automation</h3><p>PowerShell & Graph API.</p></div>
+        <div class="hero-flex">
+            <div class="hero-text">
+                <h1>I'm <span>Shubham Dhadiwal</span></h1>
+                <p style="font-size: 1.25rem; color: var(--text-dim); margin-bottom: 30px;">
+                    Strategic Tech Lead at Cognizant. I architect resilient Microsoft 365 infrastructures that transform how global enterprises collaborate. By blending high-level cloud strategy with deep automation, I solve the world's most complex digital workplace challenges.
+                </p>
+                <div style="display:flex; gap:15px; flex-wrap:wrap;">
+                    <div style="background:rgba(255,255,255,0.05); padding:10px 20px; border-radius:10px;">🛡️ <strong>Security-First</strong></div>
+                    <div style="background:rgba(255,255,255,0.05); padding:10px 20px; border-radius:10px;">⚙️ <strong>Automation-Driven</strong></div>
+                </div>
+            </div>
+            <div class="img-wrapper">
+                <img src="profile.jpg" alt="Shubham Dhadiwal">
+            </div>
+        </div>
+
+        <div class="bento-grid">
+            <div class="info-card" style="grid-column: span 2;">
+                <i class="fas fa-graduation-cap" style="font-size: 2rem; color: var(--ms-blue);"></i>
+                <h3>Academic Foundation</h3>
+                <p>Equipped with a strong analytical background, I hold a <strong>Bachelor of Engineering (B.E.)</strong> which laid the groundwork for my logic-driven approach to M365 architecture and problem-solving in complex enterprise environments.</p>
+            </div>
+
+            <div class="info-card">
+                <i class="fas fa-hand-holding-heart" style="font-size: 2rem; color: var(--ms-teal);"></i>
+                <h3>Philanthropy</h3>
+                <p>Proud Member of <strong>Open Arms</strong>. I believe in professional excellence paired with social responsibility, contributing to community growth and inclusive support systems.</p>
+            </div>
+
+            <div class="info-card" style="grid-column: span 3; display: flex; align-items: center; gap: 30px;">
+                <div style="font-size: 3rem;">🤖</div>
+                <div>
+                    <h3>AI & Automation Vision</h3>
+                    <p>As an Infrastructure Architect, I don't just manage servers; I build "Living Systems." By leveraging AI-driven insights and PowerShell-based Graph API automation, I reduce operational overhead by up to 40%, allowing teams to focus on innovation rather than maintenance.</p>
+                </div>
             </div>
         </div>
     </section>
