@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Shubham Dhadiwal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">SD<span>.</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">About</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+                <li><a href="mailto:Shubham.Dhadiwal@outlook.com" class="btn-talk">Let's Talk</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="contact-section container">
+        <div class="section-title animate__animated animate__fadeIn">
+            <span class="badge">Connect</span>
+            <h2>Get In <span>Touch</span></h2>
+            <p>I am available for M365 consulting, infrastructure projects, or full-time opportunities.</p>
+        </div>
+
+        <div class="contact-grid">
+            <div class="contact-details animate__animated animate__fadeInLeft">
+                <div class="detail-card">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Email</h4>
+                        <p>Shubham.Dhadiwal@outlook.com</p>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <h4>Phone</h4>
+                        <p>+91 70200 86337</p>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Location</h4>
+                        <p>Pune, MH, India</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-container animate__animated animate__fadeInRight">
+                <form action="https://formspree.io/f/YOUR_ID" method="POST" class="contact-form">
+                    <div class="form-row">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <input type="text" name="subject" placeholder="Subject">
+                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                    <button type="submit" class="btn-primary">Send Message <i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
