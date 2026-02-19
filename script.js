@@ -1,21 +1,12 @@
-// Loading screen
-window.addEventListener('load', () => {
-  const loader = document.getElementById('loadingScreen');
-  loader.style.display = 'none';
+window.addEventListener("load",()=>{
+  setTimeout(()=>{
+    document.getElementById("loader").style.display="none";
+  },2000);
 });
 
-// Dark mode toggle
-const toggle = document.getElementById('darkToggle');
-toggle.addEventListener('click', () => {
-  document.body.classList.toggle('dark');
-  toggle.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
-});
+const toggle=document.getElementById("themeToggle");
 
-// Scroll animations
-const animateElements = document.querySelectorAll('.animate-left, .animate-right, .animate-bottom');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){ entry.target.classList.add('fade-in'); }
-  });
-}, { threshold: 0.2 });
-animateElements.forEach(el => observer.observe(el));
+toggle.addEventListener("click",()=>{
+  document.body.classList.toggle("dark");
+  toggle.textContent=document.body.classList.contains("dark")?"☀️":"🌙";
+});
