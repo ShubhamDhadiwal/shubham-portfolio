@@ -1,18 +1,22 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = "1";
-                entry.target.style.transform = "translateY(0)";
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
+const CODE = "M365Access";
 
-    document.querySelectorAll('.exp-item, .card, .project-card').forEach(el => {
-        el.style.opacity = "0";
-        el.style.transform = "translateY(20px)";
-        el.style.transition = "0.6s ease-out";
-        observer.observe(el);
-    });
-});
+function validate() {
+    const input = document.getElementById("code").value;
+    return input === CODE;
+}
+
+function openFiles() {
+    if (validate()) {
+        window.open("YOUR_DOWNLOAD_LINK", "_blank");
+    } else {
+        alert("Invalid code");
+    }
+}
+
+function uploadFiles() {
+    if (validate()) {
+        window.open("YOUR_UPLOAD_LINK", "_blank");
+    } else {
+        alert("Invalid code");
+    }
+}
