@@ -3,124 +3,131 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shubham Dhadiwal Portfolio</title>
+<title>Shubham Dhadiwal | M365 Infrastructure Leader</title>
 <link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-<!-- Loading Screen -->
-<div class="loading-screen" id="loadingScreen">
-  <div class="sun-moon">
-    <div class="sun"></div>
-    <div class="moon"></div>
-  </div>
+<!-- Loader -->
+<div id="loader">
+  <div class="loader-moon"></div>
 </div>
 
-<!-- Logo -->
-<a href="#top" class="logo">
-  <img src="Picsart_26-02-19_02-12-00-522.png" alt="Shubham Logo">
-</a>
+<!-- Header -->
+<header>
+  <div class="logo">
+    <img src="Picsart_26-02-19_02-12-00-522.png" alt="Logo">
+  </div>
 
-<!-- Dark Mode Toggle -->
-<button id="darkToggle" class="dark-toggle">🌙</button>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#certifications">Certifications</a>
+  </nav>
 
-<!-- Hero Section -->
-<section class="hero" id="top">
+  <button id="themeToggle">🌙</button>
+</header>
+
+<!-- Hero -->
+<section class="hero">
   <h1>Shubham Dhadiwal</h1>
-  <h2>Tech Lead | Microsoft 365 Specialist | Teams & SharePoint</h2>
+  <h2>M365 Infrastructure Developer & Teams Telephony Specialist</h2>
+  <p class="summary">
+    Certified IT professional with 7+ years of experience in Microsoft 365,
+    Exchange (Online & On-Prem), hybrid environments, migrations, security,
+    and enterprise collaboration architecture.
+  </p>
+
+  <div class="hero-buttons">
+    <a href="https://www.linkedin.com/in/er-shubham-dhadiwal" target="_blank" class="btn">LinkedIn</a>
+    <a href="#" class="btn">Download Resume</a>
+    <a href="https://shubhamdhadiwal.wixsite.com/portfolio" target="_blank" class="btn-outline">Legacy Portfolio</a>
+  </div>
 </section>
 
-<!-- Work Experience Timeline -->
+<!-- About -->
+<section id="about">
+  <h2 class="section-title">Executive Profile</h2>
+  <div class="profile-card">
+    <p>
+      Microsoft 365 infrastructure leader specializing in Exchange Online/On-Prem,
+      SharePoint governance, Teams telephony architecture, and secure hybrid
+      collaboration environments. Proven expertise in enterprise-scale migrations,
+      automation via PowerShell, and implementing compliance-driven solutions.
+    </p>
+  </div>
+</section>
+
+<!-- Experience -->
 <section id="experience">
-  <h2>Work Experience</h2>
+  <h2 class="section-title">Professional Experience</h2>
   <div class="timeline">
 
-    <div class="job-card animate-left">
-      <h3>TECH LEAD</h3>
-      <em>Cognizant Technology India Pvt Ltd | Pune, MH | 29 APR 2022 – PRESENT</em>
+    <div class="job-card">
+      <h3>Tech Lead – Microsoft 365</h3>
+      <p><strong>Cognizant Technology India Pvt Ltd | Pune</strong></p>
+      <span>April 2022 – Present</span>
       <ul>
-        <li>Expert in Microsoft 365 administration (Exchange, Teams, SharePoint, OneDrive).</li>
-        <li>Led migrations from on-prem file servers to Teams and SharePoint using ShareGate.</li>
-        <li>Strengthened email security via transport rules, connectors, and anti-spam measures.</li>
-        <li>Enhanced Teams telephony with call queues, auto attendants, IVRs, and resource accounts.</li>
-        <li>Automated admin tasks using PowerShell modules to improve efficiency.</li>
+        <li>Lead Microsoft 365 infrastructure across Exchange, Teams, SharePoint & OneDrive.</li>
+        <li>Executed large-scale migrations using ShareGate ensuring permission integrity.</li>
+        <li>Designed Teams Telephony (Call Queues, Auto Attendants, IVRs).</li>
+        <li>Implemented email security (Transport Rules, Connectors, Anti-Spam).</li>
+        <li>Automated administration using ExchangeOnline & AzureAD PowerShell modules.</li>
       </ul>
     </div>
 
-    <div class="job-card animate-right">
-      <h3>IT SYSTEM ADMINISTRATOR</h3>
-      <em>Span Pumps Pvt Ltd | Pune, MH | 01 SEP 2021 – 09 SEP 2022</em>
+    <div class="job-card">
+      <h3>IT System Administrator</h3>
+      <p><strong>Span Pumps Pvt Ltd | Pune</strong></p>
+      <span>Sep 2021 – Apr 2022</span>
       <ul>
-        <li>Implemented Microsoft 365 security features including MFA, Conditional Access, and VPN.</li>
-        <li>Conducted SharePoint audits, compliance checks, and governance policy implementation.</li>
-        <li>Designed customized SharePoint solutions, document libraries, metadata, and versioning.</li>
-      </ul>
-    </div>
-
-    <div class="job-card animate-left">
-      <h3>IT SYSTEM ENGINEER</h3>
-      <em>Span Pumps Pvt Ltd | Chennai, TN | 21 JAN 2021 – 31 AUG 2021</em>
-      <ul>
-        <li>Managed Microsoft 365/O365 environments: Exchange, SharePoint, Teams, Active Directory.</li>
-        <li>Configured accounts, group policies, and basic permissions for onboarding.</li>
-        <li>Supported migrations (IMAP, G Suite, file servers) and troubleshooting issues.</li>
-        <li>Monitored system performance & network connectivity using OSI/TCP-IP fundamentals.</li>
-        <li>Provided Tier-1/Tier-2 support for O365 applications and SharePoint.</li>
-      </ul>
-    </div>
-
-    <div class="job-card animate-right">
-      <h3>DESKTOP SUPPORT ENGINEER</h3>
-      <em>Excelsior Research Pvt Ltd | Pune, MH | 05 JUN 2019 – 19 JAN 2021</em>
-      <ul>
-        <li>Provided Level 2/3 support for Office 365 applications (Word, Excel, Teams) and SharePoint.</li>
-        <li>Managed user access, document libraries, and troubleshooting to enhance collaboration.</li>
-        <li>Assisted with migrations between Office 365 environments.</li>
-        <li>Implemented security measures and backup solutions to safeguard sensitive data.</li>
-        <li>Monitored system performance, applied upgrades/patches, and ensured LAN connectivity.</li>
-        <li>Delivered user training and documented best practices.</li>
-      </ul>
-    </div>
-
-    <div class="job-card animate-left">
-      <h3>DESKTOP SUPPORT ENGINEER (Junior)</h3>
-      <em>Excelsior Research Pvt Ltd | Pune, MH | JUN 2019 – JAN 2020</em>
-      <ul>
-        <li>Assisted Desktop Support Engineers in troubleshooting Office 365 applications and SharePoint issues.</li>
-        <li>Supported user account setup, permissions, and basic network configurations.</li>
-        <li>Helped with system upgrades, patches, and proactive monitoring to reduce downtime.</li>
-        <li>Provided Tier-1 support for end-users, escalating complex issues to senior engineers.</li>
-        <li>Documented support activities and contributed to knowledge base.</li>
-        <li>Ensured smooth daily operations by coordinating with IT teams.</li>
+        <li>Implemented MFA & Conditional Access policies.</li>
+        <li>Conducted SharePoint governance & compliance audits.</li>
+        <li>Managed document lifecycle & migration from G Suite / IMAP.</li>
       </ul>
     </div>
 
   </div>
 </section>
 
-<!-- Skills Section -->
-<section id="skills">
-  <h2>Technical Skills</h2>
-  <div class="skills">
-    <div class="skill animate-bottom">
-      <h4>Microsoft 365</h4>
-      <p>Exchange, Teams, SharePoint, OneDrive</p>
+<!-- Projects -->
+<section id="projects">
+  <h2 class="section-title">Strategic Projects</h2>
+
+  <div class="project-grid">
+    <div class="project-card">
+      <h3>SLA365 – Performance Monitoring</h3>
+      <p>Automated SLA reporting & team performance tracking platform showcased at Cognizant VibeCoding event.</p>
     </div>
-    <div class="skill animate-bottom">
-      <h4>PowerShell</h4>
-      <p>Automation & Administration</p>
-    </div>
-    <div class="skill animate-bottom">
-      <h4>ShareGate</h4>
-      <p>Migration & Permissions</p>
-    </div>
-    <div class="skill animate-bottom">
-      <h4>Networking</h4>
-      <p>OSI Model, TCP/IP, LAN</p>
+
+    <div class="project-card">
+      <h3>Enterprise Teams Telephony Rollout</h3>
+      <p>Designed full-scale enterprise voice solution including resource accounts & IVR routing.</p>
     </div>
   </div>
 </section>
+
+<!-- Certifications -->
+<section id="certifications">
+  <h2 class="section-title">Certifications</h2>
+
+  <div class="cert-grid">
+    <div class="cert">MS-900</div>
+    <div class="cert">SC-900</div>
+    <div class="cert">SC-400</div>
+    <div class="cert">Teams Administrator</div>
+    <div class="cert">MS-500</div>
+    <div class="cert">CompTIA A+</div>
+    <div class="cert">CompTIA N+</div>
+    <div class="cert">Google IT Support</div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Shubham Dhadiwal | Microsoft 365 Infrastructure Leader
+</footer>
 
 <script src="script.js"></script>
 </body>
