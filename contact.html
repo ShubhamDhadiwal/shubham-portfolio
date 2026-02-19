@@ -9,40 +9,36 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo">SD<span>.</span></div>
-            <ul class="nav-links">
-                <li><a href="index.html">About</a></li>
-                <li><a href="experience.html">Experience</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="contact.html" class="active">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+    <nav class="navbar"><div class="container"><div class="logo">SD<span style="color:#0078d4;">.</span></div>
+    <ul class="nav-links"><li><a href="index.html">About</a></li><li><a href="experience.html">Experience</a></li><li><a href="projects.html">Projects</a></li><li><a href="contact.html" class="active">Contact</a></li></ul></div></nav>
 
-    <section class="contact-section container">
-        <div class="section-title">
-            <span class="badge">Connect</span>
-            <h2>Get In <span>Touch</span></h2>
-            <p>Available for <strong>freelancing</strong>, <strong>full-time jobs</strong>, and <strong>M365 consulting</strong>.</p>
+    <section class="container">
+        <div style="margin-bottom:50px;">
+            <span style="color:#0078d4; font-weight:bold;">CONNECT</span>
+            <h2 style="font-size:2.5rem;">Let's Build <span>Something</span> Together</h2>
+            <p style="font-size:1.1rem; color:#c5c6c7;">Available for <strong>Freelancing</strong>, <strong>Full-time Opportunities</strong>, and <strong>Consultation</strong>.</p>
         </div>
 
         <div class="contact-grid">
             <div class="contact-info">
+                <div class="detail-card" style="margin-bottom:20px;">
+                    <i class="fas fa-envelope" style="color:#0078d4; font-size:24px; margin-bottom:10px;"></i>
+                    <h4>Email</h4><p>Shubham.Dhadiwal@outlook.com</p>
+                </div>
                 <div class="detail-card">
-                    <p><i class="fas fa-envelope"></i> Shubham.Dhadiwal@outlook.com</p>
-                    <p style="margin-top:10px;"><i class="fas fa-phone"></i> +91 70200 86337</p>
+                    <i class="fas fa-phone-alt" style="color:#0078d4; font-size:24px; margin-bottom:10px;"></i>
+                    <h4>Phone</h4><p>+91 70200 86337</p>
                 </div>
             </div>
 
             <form class="contact-form">
                 <div class="form-group">
-                    <input type="text" placeholder="Name" required>
-                    <input type="email" placeholder="Email" required>
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
                 </div>
-                <textarea rows="4" placeholder="How can I help you?" required></textarea>
-                <button type="submit" class="btn-submit">Send Message <i class="fas fa-paper-plane"></i></button>
+                <input type="text" placeholder="Subject (Job, Project, or Consultation)">
+                <textarea rows="5" placeholder="Tell me about your requirements..." required></textarea>
+                <button type="submit" class="btn-primary" style="width:fit-content;">Send Message <i class="fas fa-paper-plane"></i></button>
             </form>
         </div>
     </section>
