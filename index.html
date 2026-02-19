@@ -1,150 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shubham Dhadiwal | M365 Infra Developer</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shubham Dhadiwal | M365 Infrastructure Developer</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
 <body>
 
-<!-- LOADER -->
-<div id="loader">
-  <div class="sun"></div>
-</div>
-
-<!-- NAVBAR -->
-<header>
-  <div class="container nav">
-    <div class="logo">Shubham Dhadiwal</div>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+    <nav class="navbar animate__animated animate__fadeInDown">
+        <div class="container">
+            <div class="logo">SD<span>.</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">About</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="mailto:Shubham.Dhadiwal@outlook.com" class="btn-talk">Let's Talk</a></li>
+            </ul>
+        </div>
     </nav>
-    <button id="themeToggle">🌙</button>
-  </div>
-</header>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="container hero-grid">
-    <div>
-      <h1>M365 Infrastructure Developer</h1>
-      <h2>Exchange • Teams • SharePoint • Security</h2>
-      <p>Driving secure, scalable Microsoft 365 ecosystems across hybrid and enterprise environments.</p>
-      <div class="buttons">
-        <a href="#experience" class="btn-primary">View Experience</a>
-        <a href="Shubham Dhadiwal Resume 3.0.docx" class="btn-outline">Download Resume</a>
-      </div>
-    </div>
-  </div>
-</section>
+    <section id="about" class="about-section container">
+        <div class="about-image animate__animated animate__zoomIn">
+            <div class="image-border">
+                <img src="profile.jpg" alt="Shubham Dhadiwal">
+            </div>
+            <div class="floating-circle circle-1"></div>
+            <div class="floating-circle circle-2"></div>
+        </div>
 
-<!-- ABOUT -->
-<section id="about" class="section">
-  <div class="container">
-    <h2 class="section-title">About</h2>
-    <p>
-      Certified IT professional with 7+ years of experience in Microsoft Exchange (On-Prem & Online),
-      Microsoft 365, and hybrid cloud environments. Specialized in migrations, mail flow architecture,
-      Teams telephony solutions, and PowerShell automation.
-    </p>
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience" class="section light">
-  <div class="container">
-    <h2 class="section-title">Professional Experience</h2>
-
-    <div class="card">
-      <h3>Tech Lead – Cognizant</h3>
-      <span>Apr 2022 – Present | Pune</span>
-      <ul>
-        <li>Lead Microsoft 365 administration across Exchange, Teams, SharePoint & OneDrive.</li>
-        <li>Executed large-scale migrations using ShareGate with permissions integrity.</li>
-        <li>Strengthened email security via transport rules & anti-spam policies.</li>
-        <li>Designed Teams telephony (Call Queues, Auto Attendants, IVRs).</li>
-        <li>Automated workflows using PowerShell modules.</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3>IT System Administrator – Span Pumps</h3>
-      <span>Sep 2021 – Apr 2022 | Pune</span>
-      <ul>
-        <li>Implemented MFA & Conditional Access policies.</li>
-        <li>Conducted SharePoint governance audits.</li>
-        <li>Managed IMAP & G-Suite migrations.</li>
-        <li>Delivered O365 user training & support.</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3>IT System Engineer – Span Pumps</h3>
-      <span>Jan 2021 – Aug 2021 | Chennai</span>
-      <ul>
-        <li>Supported Exchange, SharePoint & Teams administration.</li>
-        <li>Configured AD users & permissions.</li>
-        <li>Provided Tier-1 / Tier-2 enterprise support.</li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills" class="section">
-  <div class="container">
-    <h2 class="section-title">Core Expertise</h2>
-    <div class="grid">
-      <div class="skill-card">Microsoft 365 Administration</div>
-      <div class="skill-card">Exchange Online & On-Prem</div>
-      <div class="skill-card">Microsoft Teams Telephony</div>
-      <div class="skill-card">SharePoint Governance</div>
-      <div class="skill-card">PowerShell Automation</div>
-      <div class="skill-card">Security & Compliance</div>
-      <div class="skill-card">Azure AD & Active Directory</div>
-      <div class="skill-card">ShareGate Migration</div>
-    </div>
-  </div>
-</section>
-
-<!-- PROJECT -->
-<section id="projects" class="section light">
-  <div class="container">
-    <h2 class="section-title">Projects</h2>
-    <div class="card">
-      <h3>SLA365 – Performance Monitoring</h3>
-      <p>
-        Designed and showcased SLA365 during Cognizant VibeCoding event.
-        Automated SLA tracking and reporting using Lovable.ai for actionable insights.
-      </p>
-      <a href="https://sla365.lovable.app" target="_blank" class="btn-primary small">View Project</a>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="section">
-  <div class="container">
-    <h2 class="section-title">Contact</h2>
-    <p>Pune, India</p>
-    <p>Email: Shubham.Dhadiwal@outlook.com</p>
-    <p>Phone: 7020086337</p>
-    <p><a href="https://www.linkedin.com/in/er-shubham-dhadiwal" target="_blank">LinkedIn Profile</a></p>
-  </div>
-</section>
-
-<footer>
-  <div class="container">
-    © 2026 Shubham Dhadiwal | Microsoft 365 Specialist
-  </div>
-</footer>
-
-<script src="script.js"></script>
-</body>
-</html>
+        <div class="about-content">
+            <span class="badge animate__animated animate__fadeInLeft">M365 Specialist</span>
+            <h1 class="animate__animated animate__fadeInUp">Shubham Dhadiwal</h1>
+            <h2 class="animate__animated animate__fadeInUp">M365 Infrastructure Developer</h2>
+            <p class="animate__animated animate__fadeInUp animate__delay-1s">
+                Certified IT professional with over 7 years of experience specializing in Microsoft Exchange, 
+                M365, and hybrid cloud environments. Expert in email migrations, PowerShell automation, 
+                and delivering secure collaboration solutions.
+            </p>
+            
+            <div class="info-grid animate__animated animate__fadeInUp animate__delay-1s">
+                <div class="info-item">
+                  
