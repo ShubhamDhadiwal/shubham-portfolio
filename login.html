@@ -2,21 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In | SD Enterprise Portal</title>
+    <title>Sign In | SD Portal</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body style="background: #000; display:flex; align-items:center; justify-content:center; height:100vh;">
-    <div style="background: #fff; padding: 40px; width: 100%; max-width: 400px; box-shadow: 0 20px 50px rgba(0,120,212,0.3); border-radius: 8px;">
+<body style="background:#f2f2f2; display:flex; align-items:center; justify-content:center; height:100vh;">
+    <div style="background:white; padding:40px; width:100%; max-width:420px; box-shadow:0 15px 35px rgba(0,0,0,0.1); border-radius:2px;">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Microsoft_logo_%282012%29.svg/1280px-Microsoft_logo_%282012%29.svg.png" width="110">
-        <h2 style="color:#000; margin-top:20px;">Sign in</h2>
-        <p style="color:#666; font-size:14px; margin-bottom:20px;">Access your private OneDrive environment.</p>
-        <input type="text" id="u" placeholder="Client ID" style="width:100%; padding:12px; margin-bottom:10px; border:1px solid #ccc;">
-        <input type="password" id="p" placeholder="Password" style="width:100%; padding:12px; margin-bottom:20px; border:1px solid #ccc;">
-        <button onclick="login()" style="width:100%; background:#0067b8; color:#fff; padding:12px; border:none; cursor:pointer; font-weight:700;">Sign In</button>
+        <h2 style="color:#000; margin:20px 0 10px; font-weight:600;">Sign in</h2>
+        <p style="color:#666; font-size:15px; margin-bottom:20px;">Use your Client ID to access project files.</p>
+        <input type="text" id="uid" placeholder="User ID" style="width:100%; padding:12px; margin-bottom:15px; border:none; border-bottom:1px solid #666; font-size:16px;">
+        <input type="password" id="ups" placeholder="Password" style="width:100%; border:none; border-bottom:1px solid #666; padding:12px; margin-bottom:30px; font-size:16px;">
+        <button onclick="login()" style="background:#0067b8; color:white; border:none; padding:10px 35px; cursor:pointer; font-weight:600; float:right;">Sign In</button>
     </div>
     <script>
         function login() {
-            if(document.getElementById('u').value === "client" && document.getElementById('p').value === "shubham365") {
+            const u = document.getElementById('uid').value;
+            const p = document.getElementById('ups').value;
+            if(u === "client" && p === "shubham365") {
                 window.location.href = "https://1drv.ms/f/c/6e2da3a833e15004/IgAEUOEzqKMtIIBuRAEAAAAAAads1YT_Yygv2Kubec9bhBw";
             } else { alert("Access Denied."); }
         }
