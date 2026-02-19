@@ -1,60 +1,55 @@
-:root {
-    --bg: #0b0c10;
-    --card: #161a1e;
-    --ms-blue: #0078d4;
-    --ms-teal: #00bcf2;
-    --text: #ffffff;
-    --text-dim: #a9abb3;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shubham Dhadiwal | Tech Lead & M365 Architect</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar"><div class="container nav-flex">
+        <a href="login.html" class="logo">SD<span>.</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html">About</a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contact.html" class="btn-connect">Let's Connect</a></li>
+        </ul>
+    </div></nav>
 
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
-body { background: var(--bg); color: var(--text); line-height: 1.6; }
+    <section class="container">
+        <div class="hero">
+            <div class="hero-text">
+                <p style="color:var(--ms-blue); font-weight:700; letter-spacing:2px;">INFRASTRUCTURE ARCHITECT</p>
+                <h1>I'm <span>Shubham Dhadiwal</span></h1>
+                <p style="font-size:1.2rem; color:var(--text-dim); max-width:650px;">
+                    Tech Lead specializing in Microsoft 365 and Azure Infrastructure. I architect high-scale, automated environments for global enterprises, ensuring security, scalability, and zero-downtime collaboration.
+                </p>
+            </div>
+            <div style="flex:1; display:flex; justify-content:center;">
+                <img src="profile.jpg" style="width:320px; border-radius:30px; border:5px solid var(--ms-blue); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+            </div>
+        </div>
 
-/* Navbar Fix: Solid & Reliable */
-.navbar { 
-    height: 80px; display: flex; align-items: center; position: fixed; width: 100%; top: 0; 
-    background: rgba(11, 12, 16, 0.98); backdrop-filter: blur(10px); z-index: 10000;
-    border-bottom: 1px solid rgba(255,255,255,0.1); 
-}
-.container { max-width: 1200px; margin: auto; padding: 0 20px; width: 100%; }
-.nav-flex { display: flex; justify-content: space-between; align-items: center; }
+        <div class="bento">
+            <div class="card">
+                <i class="fas fa-user-graduate"></i>
+                <h3>Academics</h3>
+                <p><strong>Bachelor of Engineering (B.E.)</strong><br>Structured my logical foundation in computer science and infrastructure management, enabling a data-driven approach to cloud architecture.</p>
+            </div>
 
-.logo { font-size: 28px; font-weight: 800; text-decoration: none; color: white !important; }
-.logo span { color: var(--ms-blue); }
+            <div class="card">
+                <i class="fas fa-robot"></i>
+                <h3>AI & Automation</h3>
+                <p>I leverage AI-driven insights and PowerShell Graph API to build "self-healing" infrastructures, reducing manual overhead by 40% in enterprise environments.</p>
+            </div>
 
-.nav-links { display: flex; list-style: none; gap: 30px; align-items: center; }
-.nav-links a { text-decoration: none; color: var(--text-dim); font-size: 14px; font-weight: 500; transition: 0.3s; }
-.nav-links a:hover { color: var(--ms-blue); }
-
-/* Layout Adjustments: Prevents Overlapping */
-section { padding: 140px 0 80px; min-height: 100vh; }
-
-/* Hero Section */
-.hero { display: flex; align-items: center; gap: 40px; flex-wrap: wrap; }
-.hero-text { flex: 1; min-width: 300px; }
-.hero-text h1 { font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; margin-bottom: 20px; }
-.hero-text h1 span { color: var(--ms-blue); }
-
-/* Bento Grid for Laptop Professionalism */
-.bento { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 50px; }
-.card { background: var(--card); padding: 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); transition: 0.3s; }
-.card:hover { border-color: var(--ms-blue); transform: translateY(-5px); }
-.card i { font-size: 30px; color: var(--ms-blue); margin-bottom: 15px; }
-
-/* Pulse Glow Button */
-.btn-connect { 
-    background: var(--ms-blue); color: white !important; padding: 12px 30px; border-radius: 50px; 
-    text-decoration: none; font-weight: 700; transition: 0.3s;
-    box-shadow: 0 0 15px rgba(0, 120, 212, 0.4); animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 120, 212, 0.7); }
-    70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(0, 120, 212, 0); }
-    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 120, 212, 0); }
-}
-
-@media (max-width: 768px) {
-    .nav-links { display: none; } /* Hide menu on mobile to keep it clean */
-    .hero { text-align: center; }
-}
+            <div class="card">
+                <i class="fas fa-hands-helping"></i>
+                <h3>Memberships</h3>
+                <p>Active member of the <strong>Open Arms</strong> community, committed to professional mentorship and contributing to inclusive social initiatives.</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
