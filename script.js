@@ -13,13 +13,9 @@ toggle.addEventListener('click', () => {
 
 // Scroll animations
 const animateElements = document.querySelectorAll('.animate-left, .animate-right, .animate-bottom');
-
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('fade-in');
-    }
+    if(entry.isIntersecting){ entry.target.classList.add('fade-in'); }
   });
 }, { threshold: 0.2 });
-
 animateElements.forEach(el => observer.observe(el));
