@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // FORCE VISIBILITY: Prevent disappearing after animation
+                // FIXED: Keep opacity at 1 so cards don't disappear
                 entry.target.style.opacity = "1";
                 entry.target.classList.add('animate__animated', 'animate__fadeInUp');
                 observer.unobserve(entry.target);
@@ -12,9 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    // Apply to all cards
-    document.querySelectorAll('.card, .project-card, .detail-card').forEach(el => {
-        el.style.opacity = "0"; // Initial state
+    // Apply to all elements that should "reveal"
+    document.querySelectorAll('.card, .project-card, .exp-item, .detail-card').forEach(el => {
+        el.style.opacity = "0"; 
         observer.observe(el);
     });
 });
