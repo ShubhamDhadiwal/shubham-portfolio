@@ -1,39 +1,51 @@
+/* --- Global Variables (Microsoft Modern Palette) --- */
 :root {
     --bg-dark: #0b0c10;
-    --card-bg: #161a1e;
+    --card-bg: rgba(22, 26, 30, 0.8);
     --ms-blue: #0078d4;
+    --ms-teal: #00bcf2;
     --text-white: #ffffff;
+    --text-dim: #c5c6c7;
+    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
-body { background: var(--bg-dark); color: var(--text-white); }
-.container { max-width: 1100px; margin: auto; padding: 0 20px; }
+/* --- Reset & Base Styles --- */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
+body { background-color: var(--bg-dark); color: var(--text-white); overflow-x: hidden; line-height: 1.6; }
+.container { max-width: 1200px; margin: auto; padding: 0 20px; }
 
-/* Navbar */
-.navbar { height: 80px; display: flex; align-items: center; position: fixed; width: 100%; top: 0; background: rgba(11,12,16,0.95); z-index: 1000; }
-.nav-links { list-style: none; display: flex; gap: 25px; margin-left: auto; }
-.nav-links a { color: white; text-decoration: none; font-size: 14px; }
-.nav-links a.active { color: var(--ms-blue); border-bottom: 2px solid var(--ms-blue); }
+/* --- Navigation --- */
+.navbar { height: 80px; display: flex; align-items: center; position: fixed; width: 100%; top: 0; background: rgba(11, 12, 16, 0.95); backdrop-filter: blur(15px); z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.nav-links { display: flex; list-style: none; gap: 30px; margin-left: auto; }
+.nav-links a { text-decoration: none; color: white; font-size: 15px; transition: var(--transition); }
+.nav-links a:hover, .nav-links a.active { color: var(--ms-blue); }
 
-/* CONTENT SPACING FIX: Prevents hiding under navbar */
-.about-section, .experience-section, .projects-section, .contact-section {
-    padding-top: 120px; 
-    padding-bottom: 50px;
-}
+/* --- Content Spacing (Fixes Header Overlap) --- */
+section { padding-top: 130px; padding-bottom: 80px; }
 
-/* Cards & Layout */
-.card, .project-card, .detail-card {
-    background: var(--card-bg);
-    padding: 30px;
-    border-radius: 15px;
-    margin-bottom: 25px;
-    border-left: 4px solid var(--ms-blue);
-    transition: 0.3s;
-}
-
-.badge { color: var(--ms-blue); text-transform: uppercase; font-size: 12px; font-weight: bold; }
-h1 { font-size: 3rem; margin: 10px 0; }
-h2 span { color: var(--ms-blue); }
-
-.image-border { width: 300px; height: 300px; border-radius: 50%; overflow: hidden; border: 5px solid var(--ms-blue); }
+/* --- About Section Enhancement --- */
+.about-layout { display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; align-items: center; }
+.image-border { width: 100%; max-width: 380px; aspect-ratio: 1/1; border: 10px solid var(--ms-blue); border-radius: 30px; overflow: hidden; position: relative; }
 .image-border img { width: 100%; height: 100%; object-fit: cover; }
+
+.expertise-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 30px 0; }
+.exp-item { background: rgba(255, 255, 255, 0.03); padding: 20px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.05); transition: 0.3s; }
+.exp-item:hover { border-color: var(--ms-blue); background: rgba(0, 120, 212, 0.05); }
+.exp-item i { color: var(--ms-blue); font-size: 24px; margin-bottom: 10px; }
+
+/* --- Cards & Forms --- */
+.card, .project-card, .detail-card { background: var(--card-bg); padding: 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); transition: var(--transition); }
+.card:hover { transform: translateY(-10px); border-color: var(--ms-blue); }
+
+.contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; }
+.contact-form { display: flex; flex-direction: column; gap: 15px; }
+.form-group { display: flex; gap: 15px; }
+.contact-form input, .contact-form textarea { width: 100%; background: #161a1e; border: 1px solid rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; color: white; outline: none; transition: 0.3s; }
+.contact-form input:focus, .contact-form textarea:focus { border-color: var(--ms-blue); box-shadow: 0 0 10px rgba(0, 120, 212, 0.3); }
+
+/* --- Buttons --- */
+.btn-primary { background: var(--ms-blue); color: white; padding: 12px 30px; border-radius: 30px; text-decoration: none; display: inline-block; font-weight: 600; transition: 0.3s; border: none; cursor: pointer; }
+.btn-primary:hover { background: var(--ms-teal); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0, 120, 212, 0.4); }
+
+/* --- Responsive --- */
+@media (max-width: 900px) { .about-layout, .contact-grid, .form-group { grid-template-columns: 1fr; flex-direction: column; } .about-layout { text-align: center; } .image-border { margin: 0 auto; } }
