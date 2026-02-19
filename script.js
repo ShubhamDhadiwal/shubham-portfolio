@@ -3,14 +3,16 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.style.opacity = "1";
-                entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+                entry.target.style.transform = "translateY(0)";
                 observer.unobserve(entry.target);
             }
         });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.card, .project-card, .exp-item').forEach(el => {
-        el.style.opacity = "0"; 
+    document.querySelectorAll('.exp-item, .card, .project-card').forEach(el => {
+        el.style.opacity = "0";
+        el.style.transform = "translateY(20px)";
+        el.style.transition = "0.6s ease-out";
         observer.observe(el);
     });
 });
