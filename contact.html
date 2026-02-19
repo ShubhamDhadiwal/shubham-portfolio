@@ -9,39 +9,59 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
 <body>
-    <nav class="navbar"><div class="container"><div class="logo">SD<span style="color:#0078d4;">.</span></div>
-    <ul class="nav-links"><li><a href="index.html">About</a></li><li><a href="experience.html">Experience</a></li><li><a href="projects.html">Projects</a></li><li><a href="contact.html" class="active">Contact</a></li></ul></div></nav>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">SD<span style="color:#0078d4;">.</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">About</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html" class="btn-connect">Let's Connect</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <section class="container">
-        <div style="margin-bottom:50px;">
-            <span style="color:#0078d4; font-weight:bold;">CONNECT</span>
-            <h2 style="font-size:2.5rem;">Let's Build <span>Something</span> Together</h2>
-            <p style="font-size:1.1rem; color:#c5c6c7;">Available for <strong>Freelancing</strong>, <strong>Full-time Opportunities</strong>, and <strong>Consultation</strong>.</p>
+        <div style="margin-bottom:40px;" class="animate__animated animate__fadeIn">
+            <span style="color:#0078d4; font-weight:bold; text-transform:uppercase; font-size:12px; letter-spacing:1px;">Connect</span>
+            <h2 style="font-size:2.2rem; margin-top:10px;">Let's Build <span>Something</span> Together</h2>
+            <p style="color:#c5c6c7;">I'm open to <strong>Consulting</strong>, <strong>Freelance</strong>, or <strong>Full-time</strong> M365 roles.</p>
         </div>
 
         <div class="contact-grid">
             <div class="contact-info">
-                <div class="detail-card" style="margin-bottom:20px;">
-                    <i class="fas fa-envelope" style="color:#0078d4; font-size:24px; margin-bottom:10px;"></i>
-                    <h4>Email</h4><p>Shubham.Dhadiwal@outlook.com</p>
+                <div class="detail-card animate__animated animate__fadeInLeft">
+                    <i class="fas fa-envelope" style="color:#0078d4; font-size:20px; margin-bottom:10px;"></i>
+                    <h4>Email</h4>
+                    <p style="font-size:13px;">Shubham.Dhadiwal@outlook.com</p>
                 </div>
-                <div class="detail-card">
-                    <i class="fas fa-phone-alt" style="color:#0078d4; font-size:24px; margin-bottom:10px;"></i>
-                    <h4>Phone</h4><p>+91 70200 86337</p>
+                <div class="detail-card animate__animated animate__fadeInLeft" style="margin-top:20px;">
+                    <i class="fas fa-phone-alt" style="color:#0078d4; font-size:20px; margin-bottom:10px;"></i>
+                    <h4>Phone</h4>
+                    <p style="font-size:13px;">+91 70200 86337</p>
                 </div>
             </div>
 
-            <form class="contact-form">
+            <form action="https://docs.google.com/forms/d/e/1FAIpQLScrHTfpP1PudtwQkcDPLIhoXVAy9YwcUel5dR2dLyvrGFkQnQ/formResponse" 
+                  method="POST" 
+                  class="contact-form animate__animated animate__fadeInRight">
+                
                 <div class="form-group">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
+                    <input type="text" name="entry.2126752738" placeholder="Your Name" required>
+                    <input type="email" name="entry.1592015662" placeholder="Your Email" required>
                 </div>
-                <input type="text" placeholder="Subject (Job, Project, or Consultation)">
-                <textarea rows="5" placeholder="Tell me about your requirements..." required></textarea>
-                <button type="submit" class="btn-primary" style="width:fit-content;">Send Message <i class="fas fa-paper-plane"></i></button>
+                
+                <input type="text" name="entry.1519634453" placeholder="Subject">
+                
+                <textarea name="entry.48144750" rows="5" placeholder="Tell me about your project or role..." required></textarea>
+                
+                <button type="submit" class="btn-connect" style="border:none; cursor:pointer; width:fit-content; padding:15px 40px; font-size:15px;">
+                    Send Message <i class="fas fa-paper-plane" style="margin-left:8px;"></i>
+                </button>
             </form>
         </div>
     </section>
+
     <script src="script.js"></script>
 </body>
 </html>
