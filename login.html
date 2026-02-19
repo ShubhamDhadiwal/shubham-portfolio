@@ -2,38 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Client Portal | SD</title>
+    <title>Sign In | SD Enterprise Portal</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body style="background: #f2f2f2; color: #000;">
-    <nav class="navbar"><div class="container">
-        <a href="index.html" class="logo">SD<span>.</span></a>
-    </div></nav>
-
-    <div style="background: white; padding: 40px; max-width: 400px; margin: 120px auto; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-radius: 4px;">
+<body style="background: #000; display:flex; align-items:center; justify-content:center; height:100vh;">
+    <div style="background: #fff; padding: 40px; width: 100%; max-width: 400px; box-shadow: 0 20px 50px rgba(0,120,212,0.3); border-radius: 8px;">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Microsoft_logo_%282012%29.svg/1280px-Microsoft_logo_%282012%29.svg.png" width="110">
-        <h2 style="margin: 20px 0 5px; font-size: 24px;">Sign in</h2>
-        <p style="font-size: 14px; margin-bottom: 20px;">Access your shared M365 project files.</p>
-        
-        <input type="text" id="uid" placeholder="User ID" style="width:100%; border:none; border-bottom:1px solid #666; padding:10px; margin-bottom:15px; outline:none; font-size:16px;">
-        <input type="password" id="ups" placeholder="Password" style="width:100%; border:none; border-bottom:1px solid #666; padding:10px; margin-bottom:20px; outline:none; font-size:16px;">
-        
-        <button onclick="checkPortal()" style="background:#0067b8; color:white; border:none; padding:10px 35px; cursor:pointer; font-weight:600; float:right;">Sign in</button>
-        <div style="clear:both;"></div>
+        <h2 style="color:#000; margin-top:20px;">Sign in</h2>
+        <p style="color:#666; font-size:14px; margin-bottom:20px;">Access your private OneDrive environment.</p>
+        <input type="text" id="u" placeholder="Client ID" style="width:100%; padding:12px; margin-bottom:10px; border:1px solid #ccc;">
+        <input type="password" id="p" placeholder="Password" style="width:100%; padding:12px; margin-bottom:20px; border:1px solid #ccc;">
+        <button onclick="login()" style="width:100%; background:#0067b8; color:#fff; padding:12px; border:none; cursor:pointer; font-weight:700;">Sign In</button>
     </div>
-
     <script>
-        function checkPortal() {
-            const u = document.getElementById('uid').value;
-            const p = document.getElementById('ups').value;
-            // Your OneDrive Link
-            const link = "https://1drv.ms/f/c/6e2da3a833e15004/IgAEUOEzqKMtIIBuRAEAAAAAAads1YT_Yygv2Kubec9bhBw";
-            
-            if(u === "client" && p === "shubham365") {
-                window.location.href = link;
-            } else {
-                alert("Incorrect Credentials. Access Denied.");
-            }
+        function login() {
+            if(document.getElementById('u').value === "client" && document.getElementById('p').value === "shubham365") {
+                window.location.href = "https://1drv.ms/f/c/6e2da3a833e15004/IgAEUOEzqKMtIIBuRAEAAAAAAads1YT_Yygv2Kubec9bhBw";
+            } else { alert("Access Denied."); }
         }
     </script>
 </body>
