@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Shubham Dhadiwal | Portfolio</title>
 
-  <!-- Tailwind + Font Awesome -->
+  <!-- Tailwind (enable class-based dark mode) -->
+  <script>
+    window.tailwind = { config: { darkMode: 'class' } };
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
@@ -18,27 +22,42 @@
       --muted:#6b7280;
       --card-bg:#ffffff;
       --page-bg:#e4e6eb;
+      --text:#111827;
+    }
+    .dark{
+      --accent-1:#60a5fa;
+      --accent-2:#22d3ee;
+      --muted:#94a3b8;
+      --card-bg:#0f172a;
+      --page-bg:#0b1220;
+      --text:#e5e7eb;
     }
 
     body{
       background:var(--page-bg);
       font-family:'Plus Jakarta Sans',system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
-      color:#111827;
+      color:var(--text);
       overflow-x:hidden;
     }
 
     .noise{ position:fixed; inset:0; pointer-events:none; z-index:50; opacity:.05;
-      background-image:url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="n"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23n)"/%3E%3C/svg%3E'); }
+      background-image:url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="n"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23n)"/%3E%3C/svg%3E');
+    }
 
     .bounding-header{ position:relative; display:inline-block; border:1px solid #3b82f6; padding:4px 14px; margin-bottom:1.25rem; }
+    .dark .bounding-header{ border-color:#60a5fa; }
     .bounding-header::before,.bounding-header::after{ content:''; position:absolute; width:6px; height:6px; background:#3b82f6; }
+    .dark .bounding-header::before,.dark .bounding-header::after{ background:#60a5fa; }
     .bounding-header::before{ top:-3px; left:-3px; } .bounding-header::after{ bottom:-3px; right:-3px; }
 
-    .gradient-text{ background:linear-gradient(90deg,var(--accent-1),var(--accent-2)); -webkit-background-clip:text; color:transparent; font-weight:800; font-size:1.125rem; }
+    .gradient-text{ background:linear-gradient(90deg,var(--accent-1),var(--accent-2)); -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:800; font-size:1.125rem; }
 
     /* Skill card */
-    .skill-card{ width:120px; padding:12px; border-radius:14px; background:var(--card-bg); box-shadow:0 8px 20px rgba(17,17,17,0.06); display:flex; flex-direction:column; align-items:center; gap:8px; text-decoration:none; color:inherit; transition:transform .18s ease, box-shadow .18s ease; }
-    .skill-card:hover{ transform:translateY(-6px); box-shadow:0 18px 40px rgba(17,17,17,0.12); }
+    .skill-card{ width:120px; padding:12px; border-radius:14px; background:var(--card-bg);
+      box-shadow:0 8px 20px rgba(17,17,17,0.06); display:flex; flex-direction:column; align-items:center;
+      gap:8px; text-decoration:none; color:inherit; transition:transform .18s ease, box-shadow .18s ease; }
+    .skill-card:hover{ transform:translateY(-6px) rotate(-0.4deg); box-shadow:0 18px 40px rgba(17,17,17,0.12); }
+    .dark .skill-card{ box-shadow:0 10px 30px rgba(0,0,0,0.35); }
     .skill-icon{ width:52px; height:52px; border-radius:12px; display:grid; place-items:center; color:white; font-size:20px; flex-shrink:0; }
     .bg-exchange{ background:linear-gradient(135deg,#0ea5e9,#4f46e5); }
     .bg-teams{ background:linear-gradient(135deg,#06b6d4,#0ea5e9); }
@@ -56,53 +75,88 @@
     .exp-card {
       background:var(--card-bg);
       border-radius:1.25rem;
-      width:9rem;
-      height:9rem;
-      padding:1rem;
+      width:9rem; height:9rem; padding:1rem;
       box-shadow:0 12px 30px rgba(17,17,17,0.08);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      position:relative;
-      overflow:hidden; /* keep semicircle inside card */
+      display:flex; align-items:center; justify-content:center;
+      position:relative; overflow:hidden;
     }
-
-    .half-ring {
-      width:140px;
-      height:72px;
-      position:relative;
-      display:grid;
-      place-items:center;
-      transform:translateY(6px);
-    }
-
+    .dark .exp-card{ box-shadow:0 12px 30px rgba(0,0,0,0.35); }
+    .half-ring { width:140px; height:72px; position:relative; display:grid; place-items:center; transform:translateY(6px); }
     .half-ring svg{ display:block; width:100%; height:100%; overflow:visible; }
-
     .track { stroke:#e6e9ee; stroke-width:12; stroke-linecap:round; fill:none; }
+    .dark .track{ stroke:#1f2937; }
     .progress { stroke-linecap:round; stroke-width:12; fill:none; stroke-linejoin:round; }
-
-    .exp-label {
-      position:absolute;
-      bottom:18px;
-      left:50%;
-      transform:translateX(-50%);
-      text-align:center;
-      pointer-events:none;
-    }
-    .exp-years { font-weight:900; font-size:28px; color:#0f172a; line-height:1; }
+    .exp-label { position:absolute; bottom:18px; left:50%; transform:translateX(-50%); text-align:center; pointer-events:none; }
+    .exp-years { font-weight:900; font-size:28px; color:var(--text); line-height:1; }
     .exp-sub { font-size:11px; color:var(--muted); margin-top:4px; }
 
-    /* Portrait slide-up + fade-in */
-    @keyframes slideUpFadeIn {
-      0%   { transform: translateY(28px); opacity: 0; }
-      100% { transform: translateY(0);    opacity: 1; }
+    /* Shimmer for CTAs */
+    .btn-shimmer{ position:relative; overflow:hidden; }
+    .btn-shimmer::after{
+      content:""; position:absolute; inset:-100% -20%;
+      background:linear-gradient(120deg, transparent 0%, rgba(255,255,255,.35) 30%, transparent 60%);
+      transform:translateX(-100%);
     }
-    .slide-up {
+    .btn-shimmer:hover::after{ animation:shimmer 900ms ease; }
+    @keyframes shimmer{ to{ transform:translateX(100%); } }
+
+    /* Floating micro-animation */
+    @keyframes floatY{ 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-6px) } }
+    .float-slow{ animation:floatY 6s ease-in-out infinite; }
+
+    /* Resume inner badge animation on hover */
+    .group:hover .dl-badge{ transform:translateX(4px) rotate(8deg) scale(1.05); }
+
+    /* Dark helpers for fixed colors */
+    .dark .bg-white { background-color: var(--card-bg) !important; }
+    .dark .text-gray-700 { color:#cbd5e1 !important; }
+    .dark .text-gray-500 { color:#94a3b8 !important; }
+    .dark .text-gray-400 { color:#9ca3af !important; }
+    .dark .shadow-md, .dark .shadow-xl{ box-shadow:0 20px 35px rgba(0,0,0,0.45); }
+
+    /* Mini-navbar styles */
+    #miniNav{
+      transition: transform .25s ease, opacity .25s ease;
       will-change: transform, opacity;
-      animation: slideUpFadeIn 800ms cubic-bezier(0.22, 1, 0.36, 1) both;
     }
-    @media (prefers-reduced-motion: reduce) {
-      .slide-up { animation: none; opacity: 1; transform: none; }
+    #miniNav.mini-hidden{
+      transform: translateY(-120%);
+      opacity: .2;
+      pointer-events: none;
+    }
+    @media (max-width:640px){
+      #miniNav.mini-hidden{ transform: translateY(-160%); }
+    }
+    .mini-link{
+      display:flex; align-items:center; gap:.5rem;
+      padding:.5rem .75rem; border-radius:9999px;
+      font-weight:900; font-size:10px; text-transform:uppercase; letter-spacing:.1em;
+      color:#111827; opacity:.85; transition:transform .18s ease, opacity .18s ease, background .2s ease;
+      position:relative; overflow:hidden;
+    }
+    .mini-link i{ font-size:.9rem; }
+    .dark .mini-link{ color:#e5e7eb; }
+    .mini-link:hover{ transform:translateY(-1px); opacity:1; }
+    .mini-link:active{ transform:translateY(-1px) scale(0.98); }
+    .mini-link::after{
+      content:""; position:absolute; inset:0; pointer-events:none; opacity:0;
+      background: radial-gradient(120px 120px at var(--x,50%) var(--y,50%), rgba(255,255,255,.25), transparent 40%);
+      transition: opacity .3s ease;
+    }
+    .mini-link:active::after{ opacity:1; }
+    .mini-link.mini-active{
+      color:#fff !important;
+      background:linear-gradient(90deg, var(--accent-1), var(--accent-2));
+      box-shadow:0 8px 20px rgba(17,17,17,.12);
+    }
+
+    /* Smooth scroll & offset so content isn't hidden under navbar */
+    #about, #education, #experience, #skills, #projects, #contact{ scroll-margin-top: 80px; }
+    html{ scroll-behavior:smooth; }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      .skill-card, .group:hover .dl-badge, .float-slow, .btn-shimmer::after, #miniNav { transition:none !important; animation:none !important; }
     }
 
     @media (max-width:640px){
@@ -113,8 +167,47 @@
     }
   </style>
 </head>
+
 <body class="py-12 px-4 flex justify-center">
   <div class="noise"></div>
+
+  <!-- Theme Toggle -->
+  <button id="themeToggle"
+    class="fixed top-4 right-4 z-50 bg-white/70 dark:bg-slate-800/70 backdrop-blur rounded-full px-3 py-2 text-[10px] font-black uppercase tracking-widest shadow-md hover:shadow-xl transition flex items-center gap-2"
+    aria-label="Toggle dark mode">
+    <i class="fas fa-moon text-gray-700 dark:hidden"></i>
+    <i class="fas fa-sun text-yellow-400 hidden dark:inline-block"></i>
+    <span class="hidden sm:inline">Theme</span>
+  </button>
+
+  <!-- Sticky Mini-Navbar -->
+  <nav id="miniNav"
+    class="fixed top-3 left-1/2 -translate-x-1/2 z-40
+           bg-white/70 dark:bg-slate-800/70 backdrop-blur
+           border border-white/30 dark:border-white/10
+           rounded-full shadow-md hover:shadow-xl
+           px-2 py-1 transition">
+    <ul class="flex items-center gap-1">
+      <li><a href="#about" class="mini-link" data-section="about" aria-label="About">
+        <i class="fas fa-user"></i><span class="hidden sm:inline">About</span>
+      </a></li>
+      <li><a href="#education" class="mini-link" data-section="education" aria-label="Education">
+        <i class="fas fa-graduation-cap"></i><span class="hidden sm:inline">Education</span>
+      </a></li>
+      <li><a href="#experience" class="mini-link" data-section="experience" aria-label="Experience">
+        <i class="fas fa-briefcase"></i><span class="hidden sm:inline">Experience</span>
+      </a></li>
+      <li><a href="#skills" class="mini-link" data-section="skills" aria-label="Skills">
+        <i class="fas fa-screwdriver-wrench"></i><span class="hidden sm:inline">Skills</span>
+      </a></li>
+      <li><a href="#projects" class="mini-link" data-section="projects" aria-label="Projects">
+        <i class="fas fa-rocket"></i><span class="hidden sm:inline">Projects</span>
+      </a></li>
+      <li><a href="#contact" class="mini-link" data-section="contact" aria-label="Contact">
+        <i class="fas fa-envelope"></i><span class="hidden sm:inline">Contact</span>
+      </a></li>
+    </ul>
+  </nav>
 
   <div class="max-w-[1000px] w-full relative z-10">
 
@@ -123,28 +216,21 @@
       <p>M365 Infra Developer <i class="fas fa-trash-alt ml-2"></i></p>
     </div>
 
-    <div class="relative h-auto md:h-[550px] flex flex-col md:flex-row items-center md:items-end justify-between mb-24 gap-12">
-      <!-- About -->
-      <div class="w-full md:w-60 p-7 bg-white/50 backdrop-blur-xl rounded-[2.5rem] shadow-xl z-20">
-        <img src="bell.png" class="w-14 h-14 mb-5" alt="Alert" />
+    <!-- HERO / ABOUT -->
+    <div id="about" class="relative h-auto md:h-[550px] flex flex-col md:flex-row items-center md:items-end justify-between mb-24 gap-12">
+      <div class="w-full md:w-60 p-7 bg-white/50 dark:bg-white/10 backdrop-blur-xl rounded-[2.5rem] shadow-xl z-20">
+        <img src="bell.png" class="w-14 h-14 mb-5" alt="Alert">
         <h3 class="font-black text-2xl mb-3 italic">About User</h3>
         <p class="text-[11px] font-bold text-gray-700 leading-relaxed">
           IT professional from Pune with experience in Microsoft Exchange, M365 migration, and PowerShell automation.
         </p>
       </div>
 
-      <!-- Portrait -->
       <div class="relative flex justify-center items-end h-80 md:h-full w-full md:absolute md:inset-0">
         <div class="text-[300px] md:text-[500px] font-black text-gray-800/5 absolute top-0 select-none">S</div>
-        <img
-          id="portrait"
-          src="Shubham D.png"
-          alt="Shubham Dhadiwal"
-          class="h-full relative z-10 object-contain drop-shadow-2xl slide-up"
-        />
+        <img src="Shubham D.png" alt="Shubham Dhadiwal" class="h-full relative z-10 object-contain drop-shadow-2xl float-slow">
       </div>
 
-      <!-- Name + Experience Ring -->
       <div class="flex flex-col items-center md:items-end gap-10 z-20">
         <div class="text-center md:text-right">
           <h1 class="text-5xl md:text-6xl font-black leading-none tracking-tighter">Shubham<br>Dhadiwal</h1>
@@ -176,7 +262,7 @@
 
     <!-- Education & Experience -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-16 px-4 mb-24">
-      <div>
+      <div id="education">
         <div class="bounding-header"><span class="gradient-text italic">Education</span></div>
         <div class="space-y-6">
           <div>
@@ -202,7 +288,7 @@
         </div>
       </div>
 
-      <div>
+      <div id="experience">
         <div class="bounding-header"><span class="gradient-text italic">Experience</span></div>
         <div class="space-y-6">
           <div>
@@ -235,7 +321,7 @@
     </div>
 
     <!-- Software Skills -->
-    <div class="text-center mb-32">
+    <div id="skills" class="text-center mb-32">
       <div class="bounding-header"><span class="gradient-text italic">Software Skills</span></div>
       <div class="mt-10 flex flex-wrap justify-center gap-6 px-4">
         <a class="skill-card" href="https://learn.microsoft.com/exchange" target="_blank" rel="noopener">
@@ -294,38 +380,46 @@
       </div>
     </div>
 
-    <!-- Bottom 3-column row -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 mb-12">
-      <!-- Wix Portfolio tile (now with hover lift) -->
-      <div class="bg-[#f36b26] text-white p-8 rounded-[3rem] h-[400px] flex flex-col justify-between shadow-xl transition-transform duration-200 hover:-translate-y-2 hover:shadow-2xl">
+    <!-- Bottom Grid -->
+    <div id="projects" class="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 mb-12">
+      <!-- Wix Portfolio -->
+      <div class="bg-[#f36b26] text-white p-8 rounded-[3rem] h-[400px] flex flex-col justify-between shadow-xl transition-transform hover:-translate-y-2 hover:shadow-2xl">
         <p class="text-3xl font-black italic">Check My Wix Portfolio</p>
-        <a href="https://shubhamdhadiwal.wixsite.com/portfolio" target="_blank" rel="noopener" class="bg-white text-[#f36b26] text-[10px] font-black px-6 py-4 rounded-full text-center uppercase">
+        <a href="https://shubhamdhadiwal.wixsite.com/portfolio" target="_blank" rel="noopener"
+           class="bg-white text-[#f36b26] text-[10px] font-black px-6 py-4 rounded-full text-center uppercase btn-shimmer">
           shubham-portfolio
         </a>
       </div>
 
-      <!-- Email + Project -->
+      <!-- Email pill + Project -->
       <div class="flex flex-col gap-6">
-        <div class="bg-white rounded-full py-4 px-6 shadow-md text-xs font-black truncate">
-          Shubham.Dhadiwal@outlook.com
-        </div>
-        <div class="bg-white p-8 rounded-[3rem] flex-grow shadow-xl">
+        <!-- Clickable mailto -->
+        <a href="mailto:Shubham.Dhadiwal@outlook.com"
+           class="bg-white dark:bg-white/10 rounded-full py-4 px-6 shadow-md text-xs font-black truncate
+                  flex items-center gap-2 transition-transform hover:-translate-y-1 hover:shadow-lg">
+          <i class="fas fa-envelope text-blue-600 dark:text-blue-400"></i>
+          <span>Shubham.Dhadiwal@outlook.com</span>
+        </a>
+
+        <div class="bg-white p-8 rounded-[3rem] flex-grow shadow-xl transition-transform hover:-translate-y-2 hover:shadow-2xl">
           <p class="font-black italic mb-4">SLA365 Monitoring</p>
           <p class="text-[10px] text-gray-400 mb-6 font-bold">Cognizant VibeCoding Event | Personal Project</p>
-          <a href="https://sla365.lovable.app" target="_blank" rel="noopener" class="bg-blue-600 text-white text-[10px] text-center font-black py-4 rounded-2xl block uppercase">Launch Project</a>
+          <a href="https://sla365.lovable.app" target="_blank" rel="noopener"
+             class="bg-blue-600 text-white text-[10px] text-center font-black py-4 rounded-2xl block uppercase btn-shimmer">
+            Launch Project
+          </a>
         </div>
       </div>
 
-      <!-- LinkedIn + Volunteer + Resume -->
+      <!-- LinkedIn + Volunteer + Download Resume -->
       <div class="flex flex-col gap-6">
-        <!-- LinkedIn card (hover lift + subtle icon motion) -->
         <a href="https://www.linkedin.com/in/er-shubham-dhadiwal" target="_blank" rel="noopener"
-           class="bg-white p-8 rounded-[3rem] shadow-xl flex flex-col items-center transition-transform duration-200 hover:-translate-y-2 hover:shadow-2xl group">
-          <i class="fab fa-linkedin text-blue-700 text-5xl mb-4 transition-transform duration-300 ease-out group-hover:-rotate-3 group-hover:scale-105"></i>
+           class="bg-white p-8 rounded-[3rem] shadow-xl flex flex-col items-center hover:scale-105 transition-transform">
+          <i class="fab fa-linkedin text-blue-700 text-5xl mb-4"></i>
           <p class="font-black text-center italic">er-shubham-dhadiwal</p>
         </a>
 
-        <!-- Volunteer card (replaces Teams Admin Associate) -->
+        <!-- VOLUNTEER CARD -->
         <div class="bg-white p-8 rounded-[3rem] shadow-xl transition-transform duration-200 hover:-translate-y-2 hover:shadow-2xl group">
           <div class="flex items-center gap-4 mb-3">
             <i class="fas fa-tree text-green-600 text-2xl transition-transform duration-300 ease-out group-hover:-rotate-6 group-hover:scale-110"></i>
@@ -335,47 +429,53 @@
           <p class="text-xs text-gray-500 font-bold">
             Member — Open Arms Social Foundation, Ahmednagar
           </p>
-          <p class="text-[10px] text-gray-400 font-bold mb-4">
-            Dec 2014 – Jan 2019
-          </p>
+          <p class="text-[10px] text-gray-400 font-bold mb-4">Dec 2014 – Jan 2019</p>
 
           <ul class="list-disc pl-5 text-[11px] text-gray-700 font-bold space-y-1 mb-4">
             <li>Supported old age homes, animal welfare, and orphaned children through community service.</li>
             <li>Conducted environmental awareness campaigns and participated in Maha Vruksharopan 2016 (tree plantation drives).</li>
           </ul>
 
-          <a href="https://www.facebook.com/people/Open-Arms-Social-Foundation/100077170249655/"
-             target="_blank" rel="noopener"
-             class="text-blue-900 font-bold text-xs inline-flex items-center gap-2">
-            Open Arms Social Foundation
-            <i class="fas fa-arrow-up-right-from-square text-xs"></i>
+          <a href="https://www.facebook.com/people/Open-Arms-Social-Foundation/100077170249655/" target="_blank" rel="noopener"
+             class="inline-flex items-center gap-2 text-[10px] font-black uppercase px-4 py-2 rounded-full
+                    bg-blue-600 text-white btn-shimmer">
+            Open Arms Social Foundation <i class="fas fa-arrow-up-right-from-square text-xs"></i>
           </a>
         </div>
 
-        <!-- Download Resume (hover lift + parallax on DL badge) -->
+        <!-- DOWNLOAD RESUME (hover lift, shimmer, badge animation) -->
         <a href="Shubham_Dhadiwal_Resume.docx" download
-           class="bg-[#1e1b4b] text-white p-6 rounded-[2.5rem] shadow-xl flex items-center justify-between transition-transform duration-200 hover:-translate-y-2 hover:shadow-2xl group">
+           class="bg-[#1e1b4b] text-white p-6 rounded-[2.5rem] shadow-xl flex items-center justify-between
+                  transition-transform hover:-translate-y-2 hover:shadow-2xl group btn-shimmer">
           <span class="font-black italic">Download Resume</span>
-          <span id="resumeBadge" class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center font-black">
-            DL
-          </span>
+          <span class="dl-badge w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center font-black transition-transform duration-300">DL</span>
         </a>
       </div>
     </div>
 
-    <div class="text-center text-xs text-gray-500 mt-8 mb-6">
+    <!-- Footer / Contact -->
+    <div id="contact" class="text-center text-xs text-gray-500 mt-8 mb-6">
       <p class="font-bold">© Shubham Dhadiwal</p>
     </div>
 
   </div>
 
-  <!-- Scripts -->
   <script>
-    // CONFIG: set your actual experience start date here (year, monthIndex, day)
-    // Example below uses 5 June 2019 (monthIndex 5 = June).
-    const experienceStartDate = new Date(2019, 5, 5);
+    // THEME: initialize based on stored preference or system preference
+    (function initTheme(){
+      const stored = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (stored === 'dark' || (!stored && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      }
+      document.getElementById('themeToggle').addEventListener('click', () => {
+        const isDark = document.documentElement.classList.toggle('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      });
+    })();
 
-    // maxYears controls how many years correspond to a full semicircle (180deg).
+    // EXPERIENCE ARC ANIMATION
+    const experienceStartDate = new Date(2019, 5, 5); // 5 June 2019 (monthIndex 5)
     const maxYears = 10;
 
     (function animateHalfRing() {
@@ -385,16 +485,17 @@
 
       function yearsAsOfMay1(now) {
         const yearNow = now.getFullYear();
-        const mayFirstThisYear = new Date(yearNow, 4, 1); // May 1
+        const mayFirstThisYear = new Date(yearNow, 4, 1); // May 1 (monthIndex 4)
         let years = yearNow - experienceStartDate.getFullYear();
-        if (now < mayFirstThisYear) years -= 1; // increment on May 1 each year
+        if (now < mayFirstThisYear) years -= 1;
         return Math.max(0, years);
       }
 
       function init() {
+        if (!path) return;
         const len = path.getTotalLength();
-        path.style.strokeDasharray = len;
-        path.style.strokeDashoffset = len;
+        path.style.strokeDasharray = String(len);
+        path.style.strokeDashoffset = String(len);
 
         const now = new Date();
         const yearsCompleted = yearsAsOfMay1(now);
@@ -405,14 +506,13 @@
 
         const duration = 1200;
         const start = performance.now();
-
-        function easeOutCubic(t){ return 1 - Math.pow(1 - t, 3); }
+        const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
 
         function frame(nowTime) {
           const t = Math.min(1, (nowTime - start) / duration);
           const eased = easeOutCubic(t);
           const currentOffset = len - (len - targetOffset) * eased;
-          path.style.strokeDashoffset = currentOffset;
+          path.style.strokeDashoffset = String(currentOffset);
 
           const percent = Math.round(ratio * 100 * eased);
           if (percentText) percentText.textContent = percent + '% complete';
@@ -421,7 +521,7 @@
 
           if (t < 1) requestAnimationFrame(frame);
           else {
-            path.style.strokeDashoffset = targetOffset;
+            path.style.strokeDashoffset = String(targetOffset);
             if (percentText) percentText.textContent = Math.round(ratio * 100) + '% complete';
             yearsText.style.transform = 'scale(1)';
           }
@@ -433,64 +533,81 @@
       if (document.readyState === 'complete') init();
       else window.addEventListener('load', init);
     })();
-  </script>
 
-  <script>
-    // Portrait + Resume badge parallax (respect reduced motion)
-    (function(){
-      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-      if (reduceMotion.matches) return;
-
-      const portrait = document.getElementById('portrait');
-      const resumeBadge = document.getElementById('resumeBadge');
-
-      // Start parallax for portrait after its slide-up animation ends
-      function startPortraitParallax() {
-        if (!portrait) return;
-        let ticking = false;
-        const onScroll = () => {
-          if (!ticking) {
-            requestAnimationFrame(() => {
-              const y = Math.min(20, window.scrollY * 0.05);
-              // Apply only translateY so it composes well with hover transforms on parent elements
-              portrait.style.transform = `translateY(${-y}px)`;
-              ticking = false;
-            });
-            ticking = true;
-          }
-        };
-        window.addEventListener('scroll', onScroll, { passive: true });
-        onScroll();
-      }
-
-      // Immediate parallax for the resume badge (small, subtle)
-      function startBadgeParallax() {
-        if (!resumeBadge) return;
-        let ticking = false;
-        const onScroll = () => {
-          if (!ticking) {
-            requestAnimationFrame(() => {
-              const y = Math.min(10, window.scrollY * 0.06);
-              resumeBadge.style.transform = `translateY(${-y}px)`;
-              ticking = false;
-            });
-            ticking = true;
-          }
-        };
-        window.addEventListener('scroll', onScroll, { passive: true });
-        onScroll();
-      }
-
-      if (portrait) {
-        const computed = getComputedStyle(portrait);
-        if (computed.animationName && computed.animationName !== 'none') {
-          portrait.addEventListener('animationend', startPortraitParallax, { once: true });
-        } else {
-          startPortraitParallax();
+    // MINI‑NAV SCROLLSPY + ripple origin
+    (function miniNavScrollSpy(){
+      const links = Array.from(document.querySelectorAll('#miniNav .mini-link'));
+      const observer = new IntersectionObserver((entries) => {
+        let best = null;
+        for (const e of entries) {
+          if (!e.isIntersecting) continue;
+          if (!best || e.intersectionRatio > best.intersectionRatio) best = e;
         }
+        if (!best) return;
+        const id = best.target.id;
+        links.forEach(l => l.classList.toggle('mini-active', l.dataset.section === id));
+      }, { root: null, rootMargin: '0px 0px -55% 0px', threshold: [0.25, 0.5, 0.75] });
+
+      ['about','education','experience','skills','projects','contact']
+        .forEach(id => { const el = document.getElementById(id); if (el) observer.observe(el); });
+
+      // Keyboard access + ripple origin
+      links.forEach(a => {
+        a.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') a.click();
+        });
+        a.addEventListener('pointerdown', (e) => {
+          const r = a.getBoundingClientRect();
+          a.style.setProperty('--x', `${e.clientX - r.left}px`);
+          a.style.setProperty('--y', `${e.clientY - r.top}px`);
+        }, { passive:true });
+      });
+    })();
+
+    // MINI‑NAV AUTO‑HIDE ON SCROLL
+    (function miniNavAutoHide(){
+      const nav = document.getElementById('miniNav');
+      if (!nav) return;
+
+      let lastY = window.scrollY;
+      let ticking = false;
+      let revealTimer = null;
+
+      const THRESHOLD = 24; // px of movement to react
+      const TOP_PINNED = 80; // always show within top 80px
+      const REVEAL_AFTER_IDLE = 800; // ms after scroll stops
+
+      function update() {
+        const y = window.scrollY;
+        const diff = y - lastY;
+
+        if (y < TOP_PINNED || diff < -THRESHOLD) {
+          nav.classList.remove('mini-hidden');  // show when scrolling up or near top
+        } else if (diff > THRESHOLD) {
+          nav.classList.add('mini-hidden');     // hide when scrolling down
+        }
+        lastY = y;
       }
 
-      startBadgeParallax();
+      function onScroll() {
+        if (!ticking) {
+          requestAnimationFrame(() => { update(); ticking = false; });
+          ticking = true;
+        }
+        // Auto‑reveal when user stops scrolling
+        clearTimeout(revealTimer);
+        revealTimer = setTimeout(() => nav.classList.remove('mini-hidden'), REVEAL_AFTER_IDLE);
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+
+      // Show when mouse nears the top (desktop nicety)
+      window.addEventListener('mousemove', (e) => {
+        if (e.clientY < 80) nav.classList.remove('mini-hidden');
+      }, { passive: true });
+
+      // Always show when focusing nav (keyboard users)
+      nav.addEventListener('focusin', () => nav.classList.remove('mini-hidden'));
     })();
   </script>
 </body>
