@@ -3,190 +3,260 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shubham Dhadiwal | M365 Infra Developer</title>
+    <title>Shubham Dhadiwal | Resume</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-    
     <style>
-        body { 
-            background-color: #f1f3f5; 
-            font-family: 'Inter', sans-serif; 
-            overflow-x: hidden; 
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
+        
+        body {
+            background-color: #e4e6eb;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #111;
         }
-        /* Bento Card Styling */
-        .bento-card { 
-            @apply bg-white rounded-[2.5rem] p-8 shadow-sm border border-gray-100 relative overflow-hidden transition-all duration-300;
+
+        /* Adds the grainy noise texture from the original image */
+        .noise {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 50;
+            background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.05"/%3E%3C/svg%3E');
         }
-        .bento-card:hover {
-            @apply shadow-xl transform -translate-y-1;
+
+        /* The exact gradient text and blue bounding box for headers */
+        .bounding-header {
+            position: relative;
+            display: inline-block;
+            border: 1px solid #3b82f6;
+            padding: 4px 12px;
         }
-        /* Grainy texture overlay like the reference */
-        .grain { 
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-            pointer-events: none; opacity: 0.02; z-index: 50; 
-            background-image: url('https://www.transparenttextures.com/patterns/asfalt-light.png');
+        .bounding-header::before, .bounding-header::after {
+            content: ''; position: absolute; width: 6px; height: 6px; background: #3b82f6;
         }
-        /* Microsoft Brand Colors */
-        .text-ms-blue { color: #0078d4; }
-        .bg-ms-blue { background-color: #0078d4; }
+        .bounding-header::before { top: -3px; left: -3px; }
+        .bounding-header::after { bottom: -3px; right: -3px; }
+        .bounding-header span.arrow {
+            position: absolute; bottom: -8px; right: -12px; color: #1e1b4b; font-size: 12px; transform: rotate(-45deg);
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #4f46e5, #0ea5e9);
+            -webkit-background-clip: text; color: transparent; font-weight: 800; font-size: 1.25rem;
+        }
+
+        /* Skill Tag Shapes */
+        .squircle { border-radius: 16px; }
+        
+        /* Software Icon Shapes (Dog-eared document) */
+        .doc-icon {
+            border: 2px solid #111; border-radius: 8px; border-top-right-radius: 16px; position: relative;
+            width: 45px; height: 55px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 14px;
+        }
+        .doc-icon::after {
+            content: ''; position: absolute; top: -2px; right: -2px; width: 16px; height: 16px;
+            border-bottom: 2px solid #111; border-left: 2px solid #111; border-bottom-left-radius: 8px; background: #e4e6eb;
+        }
+
+        /* Social Cards */
+        .card-shadow { box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1); }
     </style>
 </head>
-<body class="p-4 md:p-8 lg:p-12">
-    <div class="grain"></div>
+<body class="relative min-h-screen py-10 px-4 flex justify-center">
+    <div class="noise"></div>
 
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-6">
+    <div class="max-w-[900px] w-full relative z-10">
         
-        <div class="md:col-span-8 lg:col-span-8 bento-card flex flex-col md:flex-row items-center gap-8 bg-slate-50">
-            <div class="relative shrink-0">
-                <span class="absolute -left-8 -top-12 text-[15rem] font-black text-gray-200/50 select-none">S</span>
-                <img src="shubham.png" alt="Shubham Dhadiwal" class="relative z-10 w-56 h-56 object-contain drop-shadow-2xl">
-            </div>
-            <div class="z-10 text-center md:text-left">
-                <div class="flex items-center justify-center md:justify-start gap-3 mb-2">
-                    <i class="fas fa-user-circle text-gray-400 text-xl"></i>
-                    <h1 class="text-4xl lg:text-5xl font-black text-gray-800 tracking-tighter">Shubham <br class="hidden lg:block">Dhadiwal</h1>
+        <div class="flex justify-between items-start text-xs font-bold mb-4">
+            <p>April 29, 2022 <span class="font-normal text-gray-500">(Joined Cognizant)</span></p>
+            <p class="flex items-center gap-2 text-gray-600">M365 Infra Developer <i class="fas fa-trash-alt"></i></p>
+        </div>
+
+        <div class="relative h-[450px] flex justify-center items-end mb-16">
+            <div class="absolute top-0 left-0 w-48 bg-white/50 backdrop-blur-md p-4 rounded-3xl card-shadow z-20">
+                <div class="text-4xl text-orange-400 mb-2 relative inline-block">
+                    🔔<span class="absolute top-0 right-0 w-3 h-3 bg-blue-500 border-2 border-white rounded-full"></span>
                 </div>
-                <p class="text-gray-500 font-semibold mb-4 text-sm uppercase tracking-widest">Pune, IN | 7+ Years Experience</p>
-                <p class="text-gray-600 text-sm leading-relaxed max-w-md">
-                    Certified IT professional specializing in Microsoft 365, Exchange (On-Prem & Online), and hybrid cloud environments. Expert in migrations, PowerShell automation, and security.
+                <h3 class="font-black text-lg leading-tight mb-2">About<br>User</h3>
+                <p class="text-[9px] font-semibold text-gray-700 leading-tight">
+                    An IT professional hailing from <b>Pune, India</b> with <b>7+ years of experience</b> in the field. My talents encompass crafting secure hybrid cloud environments, migrating data, expertly executing PowerShell automation, and managing M365 infrastructure.
                 </p>
-                <div class="flex flex-wrap justify-center md:justify-start gap-2 mt-6">
-                    <span class="px-4 py-2 bg-blue-100 text-blue-700 rounded-2xl text-[10px] font-black uppercase">M365 Infra</span>
-                    <span class="px-4 py-2 bg-purple-100 text-purple-700 rounded-2xl text-[10px] font-black uppercase">Teams Admin</span>
-                    <span class="px-4 py-2 bg-orange-100 text-orange-700 rounded-2xl text-[10px] font-black uppercase">PowerShell</span>
+            </div>
+
+            <div class="absolute bottom-16 left-12 flex flex-col gap-2 z-20">
+                <div class="flex gap-2">
+                    <div class="bg-[#ff9c7a] text-[#8a3c22] squircle w-20 h-20 p-2 flex flex-col justify-end text-[10px] font-bold shadow-lg">
+                        <i class="fas fa-shield-alt mb-1 text-lg"></i>Security
+                    </div>
+                    <div class="bg-[#e2e8f0] text-gray-600 squircle w-20 h-20 p-2 flex flex-col justify-end text-[10px] font-bold shadow-lg">
+                        <i class="fas fa-search mb-1 text-lg"></i>Compliance
+                    </div>
+                </div>
+                <div class="flex gap-2">
+                    <div class="bg-[#52525b] text-white squircle w-20 h-20 p-2 flex flex-col justify-end text-[10px] font-bold shadow-lg">
+                        <i class="fas fa-terminal mb-1 text-lg"></i>PowerShell
+                    </div>
+                    <div class="bg-[#a855f7] text-white squircle w-20 h-20 p-2 flex flex-col justify-end text-[10px] font-bold shadow-lg">
+                        <i class="fas fa-cloud mb-1 text-lg"></i>M365 Admin
+                    </div>
+                    <div class="bg-[#94a3b8] text-white squircle w-20 h-20 p-2 flex flex-col justify-end text-[10px] font-bold shadow-lg">
+                        <i class="fas fa-sync-alt mb-1 text-lg"></i>Migrations
+                    </div>
+                </div>
+            </div>
+
+            <div class="absolute top-0 w-full h-full flex justify-center items-end overflow-hidden">
+                <div class="text-[350px] font-black text-gray-800 leading-none absolute -top-10 z-0 tracking-tighter mix-blend-overlay">S</div>
+                <img src="shubham.png" alt="Profile" class="h-[90%] relative z-10 object-contain drop-shadow-2xl">
+                <div class="absolute bottom-6 bg-white/80 backdrop-blur rounded-full px-4 py-2 flex gap-2 z-20 shadow-lg border border-white">
+                    <div class="w-2 h-2 rounded-full bg-gray-800"></div>
+                    <div class="w-2 h-2 rounded-full bg-gray-400"></div>
+                    <div class="w-2 h-2 rounded-full bg-gray-400"></div>
+                </div>
+            </div>
+
+            <div class="absolute top-10 right-0 z-20">
+                <i class="far fa-user text-xl mb-2"></i>
+                <h1 class="text-4xl font-black leading-none mb-1">Shubham<br>Dhadiwal</h1>
+                <p class="text-xs font-semibold text-gray-500">Pune, Maharashtra</p>
+            </div>
+
+            <div class="absolute bottom-20 right-4 bg-white squircle w-32 h-32 p-4 card-shadow z-20 flex flex-col items-center justify-center">
+                <p class="text-[8px] font-bold text-gray-400 self-start w-full">years exp.</p>
+                <div class="relative w-16 h-16 mt-1 flex justify-center items-center">
+                    <svg class="absolute w-full h-full transform -rotate-90">
+                        <circle cx="32" cy="32" r="28" stroke="#e2e8f0" stroke-width="8" fill="transparent" />
+                        <circle cx="32" cy="32" r="28" stroke="#1e3a8a" stroke-width="8" fill="transparent" stroke-dasharray="175" stroke-dashoffset="40" stroke-linecap="round"/>
+                    </svg>
+                    <span class="font-black text-2xl text-blue-900 absolute">7+</span>
                 </div>
             </div>
         </div>
 
-        <div class="md:col-span-4 lg:col-span-4 bento-card flex flex-col items-center justify-center bg-blue-600 text-white">
-            <div class="relative w-36 h-36 flex items-center justify-center">
-                <svg class="absolute w-full h-full transform -rotate-90">
-                    <circle cx="72" cy="72" r="64" stroke="rgba(255,255,255,0.2)" stroke-width="10" fill="transparent" />
-                    <circle cx="72" cy="72" r="64" stroke="white" stroke-width="10" fill="transparent" 
-                            stroke-dasharray="402" stroke-dashoffset="100" stroke-linecap="round" />
-                </svg>
-                <span class="text-5xl font-black italic">7+</span>
-            </div>
-            <p class="mt-4 text-[10px] font-black uppercase tracking-[0.3em]">Years Professional Experience</p>
-        </div>
-
-        <div class="md:col-span-6 lg:col-span-6 bento-card">
-            <h3 class="text-xl font-black text-blue-600 mb-8 flex justify-between items-center">
-                EXPERIENCE <i class="fas fa-briefcase text-gray-200"></i>
-            </h3>
-            <div class="space-y-8">
-                <div class="relative pl-6 border-l-2 border-blue-500">
-                    <p class="text-[10px] text-blue-500 font-black uppercase mb-1">2022 - Present</p>
-                    <p class="font-black text-gray-800 text-lg">Tech Lead</p>
-                    <p class="text-sm text-gray-500 font-bold italic">Cognizant Technology India Pvt Ltd</p>
+        <div class="grid grid-cols-2 gap-10 mb-12 px-8">
+            <div>
+                <div class="bounding-header mb-6">
+                    <span class="gradient-text">Education</span>
+                    <span class="arrow">▶</span>
                 </div>
-                <div class="relative pl-6 border-l-2 border-gray-200">
-                    <p class="text-[10px] text-gray-400 font-black uppercase mb-1">2021 - 2022</p>
-                    <p class="font-black text-gray-800 text-lg">IT System Admin & Engineer</p>
-                    <p class="text-sm text-gray-500 italic">Span Pumps | Precision Infomatic</p>
-                </div>
-                <div class="relative pl-6 border-l-2 border-gray-200">
-                    <p class="text-[10px] text-gray-400 font-black uppercase mb-1">2019 - 2021</p>
-                    <p class="font-black text-gray-800 text-lg">Desktop Support Engineer</p>
-                    <p class="text-sm text-gray-500 italic">Excelsior Research Pvt Ltd</p>
+                <div class="space-y-4 text-sm">
+                    <div class="flex gap-4 items-start">
+                        <p class="font-bold text-[10px] w-10 shrink-0 mt-1">2013-<br><span class="text-sm">2017</span></p>
+                        <div>
+                            <p class="font-black">BBA (Bachelor of Business Admin)</p>
+                            <p class="text-[10px] text-gray-500 font-semibold">New Arts, Comm & Scie College</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <p class="font-bold text-[10px] w-10 shrink-0 mt-1">2013-<br><span class="text-sm">2015</span></p>
+                        <div>
+                            <p class="font-black">HSC</p>
+                            <p class="text-[10px] text-gray-500 font-semibold">New Arts, Comm & Scie College</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="md:col-span-6 lg:col-span-6 bento-card">
-            <h3 class="text-xl font-black text-blue-600 mb-8 flex justify-between items-center">
-                EDUCATION <i class="fas fa-graduation-cap text-gray-200"></i>
-            </h3>
-            <div class="space-y-8">
-                <div class="relative pl-6 border-l-2 border-blue-500">
-                    <p class="text-[10px] text-blue-500 font-black uppercase mb-1">2013 - 2017</p>
-                    <p class="font-black text-gray-800 text-lg">BBA (Bachelor of Business Administration)</p>
-                    <p class="text-sm text-gray-500 italic">New Arts, Comm & Scie College, Ahmednagar</p>
+            <div>
+                <div class="bounding-header mb-6">
+                    <span class="gradient-text">Experience</span>
+                    <span class="arrow">▶</span>
                 </div>
-                <div class="relative pl-6 border-l-2 border-gray-200">
-                    <p class="text-[10px] text-gray-400 font-black uppercase mb-1">Secondary Schooling</p>
-                    <p class="font-black text-gray-800 text-lg">HSC & SSC Certification</p>
-                    <p class="text-sm text-gray-500 italic">Ahmednagar & Pune Boards</p>
+                <div class="space-y-4 text-sm">
+                    <div class="flex gap-4 items-start">
+                        <p class="font-bold text-[10px] w-10 shrink-0 mt-1">2022-<br><span class="text-sm">Now</span></p>
+                        <div>
+                            <p class="font-black">Tech Lead</p>
+                            <p class="text-[10px] text-gray-500 font-semibold">Cognizant Technology India Pvt Ltd</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <p class="font-bold text-[10px] w-10 shrink-0 mt-1">2021-<br><span class="text-sm">2022</span></p>
+                        <div>
+                            <p class="font-black">IT System Administrator</p>
+                            <p class="text-[10px] text-gray-500 font-semibold">Span Pumps Pvt Ltd</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="md:col-span-12 lg:col-span-12 bento-card">
-            <h3 class="text-center font-black text-gray-300 uppercase tracking-[0.5em] text-[10px] mb-10">Ecosystem Expertise</h3>
-            <div class="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-9 gap-8 text-center">
-                <div class="group"><i class="fas fa-envelope text-3xl text-ms-blue mb-2 transition-transform group-hover:scale-125"></i><p class="text-[9px] font-black uppercase">Exchange</p></div>
-                <div class="group"><i class="fab fa-microsoft text-3xl text-blue-400 mb-2 transition-transform group-hover:scale-125"></i><p class="text-[9px] font-black uppercase">M365</p></div>
-                <div class="group"><i class="fas fa-users-line text-3xl text-purple-600 mb-2 transition-transform group-hover:scale-125"></i><p class="text-[9px] font-black uppercase">Teams</p></div>
-                <div class="group"><i class="fas fa-sitemap text-3xl text-blue-800 mb-2 transition-transform group-hover:scale-125"></i><p class="text-[9px] font-black uppercase">SharePoint</p></div>
-                <div class="group"><i class="fas fa-cloud text-3xl text-blue-500 mb-2 transition-transform group-hover:scale-125"></i><p class="text-[9px] font-black uppercase">OneDrive</p></div>
-                <div class="group"><i class="fas fa-terminal text-3xl text-slate-800 mb-2 transition-transform group-hover:scale-125"></i><p class="text-[9px] font-black uppercase">PowerShell</p></div>
-                <div class="group"><i class="fas fa-shield-halved text-3xl text-red-500 mb-2 transition-transform group-hover:scale-125"></i><p class="text-[9px] font-black uppercase">Security</p></div>
-                <div class="group"><i class="fas fa-id-card text-3xl text-ms-blue mb-2 transition-transform group-hover:scale-125"></i><p class="text-[9px] font-black uppercase">Azure AD</p></div>
-                <div class="group"><i class="fas fa-box-open text-3xl text-teal-600 mb-2 transition-transform group-hover:scale-125"></i><p class="text-[9px] font-black uppercase">ShareGate</p></div>
+        <div class="flex flex-col items-center mb-16">
+            <div class="bounding-header mb-8">
+                <span class="gradient-text">Software Skills</span>
+                <span class="arrow">▶</span>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4">
+                <div class="doc-icon">Ex</div>
+                <div class="doc-icon">Tm</div>
+                <div class="doc-icon">Sp</div>
+                <div class="doc-icon">Od</div>
+                <div class="doc-icon"><i class="fas fa-terminal text-xl"></i></div>
+                <div class="doc-icon"><i class="fas fa-shield-alt text-xl"></i></div>
+                <div class="doc-icon"><i class="fab fa-windows text-xl"></i></div>
+                <div class="doc-icon"><i class="fab fa-microsoft text-xl"></i></div>
+                <div class="doc-icon">Sg</div>
             </div>
         </div>
 
-        <div class="md:col-span-6 lg:col-span-6 bento-card border-l-8 border-green-400">
-            <h3 class="text-xl font-black text-green-600 mb-4 flex justify-between items-center">
-                ORGANIZATION <i class="fas fa-hand-holding-heart text-gray-200"></i>
-            </h3>
-            <p class="font-black text-gray-800 text-lg">Open Arms Social Foundation</p>
-            <p class="text-xs text-gray-400 font-bold mb-4 uppercase">Member | 2014 – 2019</p>
-            <p class="text-sm text-gray-600 leading-relaxed italic">
-                Supporting old age homes, animal welfare, and tree plantation drives. Rescued wild animals in collaboration with firefighters.
-            </p>
-        </div>
+        <div class="px-8 flex gap-4">
+            <div class="w-1/3 flex flex-col items-start justify-between bg-[#f36b26] text-white p-6 rounded-3xl card-shadow">
+                <div class="bounding-header border-white mb-4 !p-2">
+                    <span class="font-black text-white">Contact</span>
+                    <span class="arrow text-white">▶</span>
+                </div>
+                <i class="fas fa-globe text-3xl mb-4"></i>
+                <div>
+                    <p class="font-black text-xl leading-tight mb-4">Check My<br>Full Project<br>Portfolio</p>
+                    <a href="https://shubhamdhadiwal.wixsite.com/portfolio" class="bg-white text-[#f36b26] text-[10px] font-bold px-4 py-2 rounded-full inline-block">Visit Website</a>
+                </div>
+            </div>
 
-        <div class="md:col-span-6 lg:col-span-6 bento-card bg-slate-900 text-white">
-            <h3 class="text-xl font-black text-blue-400 mb-4 flex justify-between items-center">
-                FEATURED PROJECT <i class="fas fa-code text-slate-700"></i>
-            </h3>
-            <p class="text-3xl font-black italic mb-2 tracking-tighter">SLA365</p>
-            <p class="text-sm text-slate-400 mb-6 leading-relaxed">
-                Performance Monitoring Tool designed during Cognizant’s VibeCoding Event to automate SLA reporting.
-            </p>
-            <a href="https://sla365.lovable.app" class="inline-block bg-blue-500 text-white text-[10px] font-black px-6 py-3 rounded-full uppercase tracking-widest hover:bg-blue-400 transition-colors">Launch App</a>
-        </div>
+            <div class="w-1/3 flex flex-col gap-4">
+                <div class="bg-white rounded-full py-3 px-4 flex items-center justify-center gap-2 card-shadow text-xs font-bold">
+                    <i class="fas fa-envelope text-blue-500"></i> Shubham.Dhadiwal@outlook.com
+                </div>
+                
+                <div class="bg-white p-4 rounded-3xl card-shadow flex-grow flex flex-col">
+                    <div class="flex items-center gap-2 mb-3">
+                        <i class="fas fa-rocket text-xl text-blue-600"></i>
+                        <p class="font-black text-sm">SLA365 Project</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 flex-grow">
+                        <div class="bg-blue-50 rounded-lg p-2 text-[8px] font-bold flex flex-col justify-center">Cognizant VibeCoding Event</div>
+                        <div class="bg-blue-50 rounded-lg p-2 text-[8px] font-bold flex flex-col justify-center">Automated SLA Reporting</div>
+                        <div class="bg-blue-50 rounded-lg p-2 text-[8px] font-bold flex flex-col justify-center">Performance Monitoring</div>
+                        <div class="bg-blue-50 rounded-lg p-2 text-[8px] font-bold flex flex-col justify-center">Lovable.ai Integration</div>
+                    </div>
+                    <a href="https://sla365.lovable.app" class="bg-blue-600 text-white text-[10px] text-center font-bold mt-3 py-2 rounded-lg block">View Project</a>
+                </div>
 
-        <div class="md:col-span-8 lg:col-span-8 bento-card flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="space-y-4 w-full md:w-auto">
-                <div class="flex items-center gap-4">
+                <div class="h-20 bg-green-100 rounded-3xl overflow-hidden relative card-shadow flex items-center justify-center">
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=500&h=200&fit=crop" class="absolute w-full h-full object-cover opacity-60">
+                    <p class="relative z-10 text-[9px] font-black bg-white/80 px-3 py-1 rounded-full">Open Arms Social Foundation</p>
+                </div>
+            </div>
+
+            <div class="w-1/3 flex flex-col gap-4">
+                <a href="https://www.linkedin.com/in/er-shubham-dhadiwal" class="bg-gradient-to-br from-gray-100 to-gray-200 p-6 rounded-3xl card-shadow flex-grow flex flex-col justify-center gap-2 hover:scale-105 transition-transform cursor-pointer">
                     <i class="fab fa-linkedin text-blue-700 text-3xl"></i>
+                    <p class="font-black text-sm mt-2 leading-tight">Shubham<br>Dhadiwal</p>
+                    <p class="text-[8px] text-gray-500">linkedin.com/in/er-shubham-dhadiwal</p>
+                </a>
+                
+                <div class="bg-white p-6 rounded-3xl card-shadow flex gap-4 items-center cursor-pointer hover:scale-105 transition-transform">
+                    <i class="fas fa-certificate text-2xl text-orange-500"></i>
                     <div>
-                        <p class="font-black text-sm">LinkedIn</p>
-                        <p class="text-xs text-gray-400">er-shubham-dhadiwal</p>
+                        <p class="font-black text-sm">Teams Admin</p>
+                        <p class="text-[8px] text-gray-500 uppercase">Associate Certified</p>
                     </div>
                 </div>
-                <div class="flex items-center gap-4">
-                    <i class="fas fa-envelope text-gray-800 text-3xl"></i>
+
+                <a href="Shubham_Dhadiwal_Resume.docx" download class="bg-gradient-to-br from-gray-100 to-gray-200 p-5 rounded-3xl card-shadow flex items-center gap-4 hover:scale-105 transition-transform cursor-pointer">
+                    <div class="bg-blue-600 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">DL</div>
                     <div>
-                        <p class="font-black text-sm">Email</p>
-                        <p class="text-xs text-gray-400">shubham.dhadiwal@outlook.com</p>
+                        <p class="font-black text-sm">Download Resume</p>
+                        <p class="text-[8px] text-gray-500">Full DOCX Document</p>
                     </div>
-                </div>
-            </div>
-            
-            <a href="Shubham_Dhadiwal_Resume.docx" download class="w-full md:w-64 py-5 bg-ms-blue hover:bg-blue-700 text-white rounded-3xl flex flex-col items-center justify-center gap-1 transition-all shadow-xl shadow-blue-200">
-                <span class="text-[10px] font-black uppercase tracking-[0.2em] opacity-80">Final Document</span>
-                <span class="font-black text-lg">DOWNLOAD RESUME</span>
-            </a>
-        </div>
-
-        <div class="md:col-span-4 lg:col-span-4 bento-card bg-orange-500 text-white flex flex-col justify-center items-center text-center">
-            <i class="fas fa-certificate text-4xl mb-4 opacity-30"></i>
-            <p class="text-[10px] font-black uppercase tracking-widest mb-3">Top Credentials</p>
-            <div class="space-y-1 font-black text-xs">
-                <p>Teams Admin Associate</p>
-                <p>MS-900 & SC-900</p>
-                <p>AZF & Cloud Intro</p>
+                </a>
             </div>
         </div>
-
-    </div>
-
-    <div class="text-center mt-12 mb-6 text-[10px] font-black text-gray-300 uppercase tracking-widest">
-        Designed for Excellence | 2024 Portfolio
     </div>
 </body>
 </html>
