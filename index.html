@@ -142,5 +142,44 @@
             </div>
         </div>
     </div>
+    <script>
+    // 1. Typing Effect for your Title
+    const text = "M365 Infra Developer & PowerShell Expert";
+    let index = 0;
+    const speed = 100;
+
+    function typeEffect() {
+        if (index < text.length) {
+            document.getElementById("typing-text").innerHTML += text.charAt(index);
+            index++;
+            setTimeout(typeEffect, speed);
+        }
+    }
+
+    // 2. 3D Tilt Effect for Bento Cards (UX Touch)
+    const cards = document.querySelectorAll('.card-shadow');
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = (y - centerY) / 10;
+            const rotateY = (centerX - x) / 10;
+            
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+        });
+    });
+
+    window.onload = typeEffect;
+    </script>
+    
 </body>
 </html>
