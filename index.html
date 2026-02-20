@@ -1,48 +1,116 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Shubham Dhadiwal | Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
-    body { background:#e4e6eb; font-family:'Plus Jakarta Sans',sans-serif; color:#111; overflow-x:hidden; }
-    .noise { position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:50; opacity:.05;
+
+    :root{
+      --accent-1:#4f46e5;
+      --accent-2:#0ea5e9;
+      --muted:#6b7280;
+      --card-bg:#ffffff;
+      --page-bg:#e4e6eb;
+    }
+
+    body{
+      background:var(--page-bg);
+      font-family:'Plus Jakarta Sans',system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+      color:#111827;
+      overflow-x:hidden;
+    }
+
+    .noise{ position:fixed; inset:0; pointer-events:none; z-index:50; opacity:.05;
       background-image:url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="n"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23n)"/%3E%3C/svg%3E'); }
-    .bounding-header { position:relative; display:inline-block; border:1px solid #3b82f6; padding:4px 14px; margin-bottom:2rem; }
-    .bounding-header::before, .bounding-header::after { content:''; position:absolute; width:6px; height:6px; background:#3b82f6; }
-    .bounding-header::before { top:-3px; left:-3px; }
-    .bounding-header::after { bottom:-3px; right:-3px; }
-    .gradient-text { background:linear-gradient(90deg,#4f46e5,#0ea5e9); -webkit-background-clip:text; color:transparent; font-weight:800; font-size:1.25rem; }
-    .doc-icon { border:2px solid #111; border-radius:8px; border-top-right-radius:18px; position:relative; width:55px; height:70px; display:flex; align-items:center; justify-content:center; background:#fff; }
-    .doc-icon::after { content:''; position:absolute; top:-2px; right:-2px; width:18px; height:18px; border-bottom:2px solid #111; border-left:2px solid #111; border-bottom-left-radius:8px; background:#e4e6eb; }
-    /* Small responsive tweaks */
-    @media (max-width:640px) {
-      .text-5xl { font-size:2.25rem; }
-      .text-6xl { font-size:2.5rem; }
+
+    .bounding-header{ position:relative; display:inline-block; border:1px solid #3b82f6; padding:4px 14px; margin-bottom:1.25rem; }
+    .bounding-header::before,.bounding-header::after{ content:''; position:absolute; width:6px; height:6px; background:#3b82f6; }
+    .bounding-header::before{ top:-3px; left:-3px; } .bounding-header::after{ bottom:-3px; right:-3px; }
+
+    .gradient-text{ background:linear-gradient(90deg,var(--accent-1),var(--accent-2)); -webkit-background-clip:text; color:transparent; font-weight:800; font-size:1.125rem; }
+
+    /* Skill card */
+    .skill-card{ width:120px; padding:12px; border-radius:14px; background:var(--card-bg); box-shadow:0 8px 20px rgba(17,17,17,0.06); display:flex; flex-direction:column; align-items:center; gap:8px; text-decoration:none; color:inherit; transition:transform .18s ease, box-shadow .18s ease; }
+    .skill-card:hover{ transform:translateY(-6px); box-shadow:0 18px 40px rgba(17,17,17,0.12); }
+    .skill-icon{ width:52px; height:52px; border-radius:12px; display:grid; place-items:center; color:white; font-size:20px; flex-shrink:0; }
+    .bg-exchange{ background:linear-gradient(135deg,#0ea5e9,#4f46e5); }
+    .bg-teams{ background:linear-gradient(135deg,#06b6d4,#0ea5e9); }
+    .bg-sharept{ background:linear-gradient(135deg,#7c3aed,#06b6d4); }
+    .bg-onedrive{ background:linear-gradient(135deg,#06b6d4,#10b981); }
+    .bg-powershell{ background:linear-gradient(135deg,#111827,#374151); }
+    .bg-security{ background:linear-gradient(135deg,#f97316,#ef4444); }
+    .bg-azure{ background:linear-gradient(135deg,#2563eb,#06b6d4); }
+    .bg-m365{ background:linear-gradient(135deg,#0ea5e9,#7c3aed); }
+    .bg-sharegate{ background:linear-gradient(135deg,#ef4444,#f97316); }
+    .skill-name{ font-weight:800; font-size:12px; text-align:center; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; width:100%; }
+    .skill-sub{ font-size:10px; color:var(--muted); text-align:center; }
+
+    /* Experience half-ring card */
+    .exp-card {
+      background:var(--card-bg);
+      border-radius:1.25rem;
+      width:9rem;
+      height:9rem;
+      padding:1rem;
+      box-shadow:0 12px 30px rgba(17,17,17,0.08);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+      overflow:hidden; /* keep semicircle inside card */
+    }
+
+    .half-ring {
+      width:140px;
+      height:72px;
+      position:relative;
+      display:grid;
+      place-items:center;
+      transform:translateY(6px);
+    }
+
+    .half-ring svg{ display:block; width:100%; height:100%; overflow:visible; }
+
+    .track { stroke:#e6e9ee; stroke-width:12; stroke-linecap:round; fill:none; }
+    .progress { stroke-linecap:round; stroke-width:12; fill:none; stroke-linejoin:round; }
+
+    .exp-label {
+      position:absolute;
+      bottom:18px;
+      left:50%;
+      transform:translateX(-50%);
+      text-align:center;
+      pointer-events:none;
+    }
+    .exp-years { font-weight:900; font-size:28px; color:#0f172a; line-height:1; }
+    .exp-sub { font-size:11px; color:var(--muted); margin-top:4px; }
+
+    @media (max-width:640px){
+      .text-5xl{ font-size:2.25rem; } .text-6xl{ font-size:2.5rem; }
+      .skill-card{ width:100px; padding:10px; }
+      .exp-card{ width:128px; height:128px; }
+      .half-ring{ width:120px; height:64px; }
     }
   </style>
-</head>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.absolute{position:absolute}.relative{position:relative}.top-0{top:0px}.z-10{z-index:10}.z-20{z-index:20}.mb-12{margin-bottom:3rem}.mb-24{margin-bottom:6rem}.mb-3{margin-bottom:0.75rem}.mb-32{margin-bottom:8rem}.mb-4{margin-bottom:1rem}.mb-5{margin-bottom:1.25rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.ml-2{margin-left:0.5rem}.mt-10{margin-top:2.5rem}.mt-3{margin-top:0.75rem}.mt-8{margin-top:2rem}.block{display:block}.flex{display:flex}.grid{display:grid}.h-10{height:2.5rem}.h-14{height:3.5rem}.h-36{height:9rem}.h-8{height:2rem}.h-80{height:20rem}.h-\[400px\]{height:400px}.h-auto{height:auto}.h-full{height:100%}.w-10{width:2.5rem}.w-14{width:3.5rem}.w-36{width:9rem}.w-8{width:2rem}.w-full{width:100%}.max-w-\[1000px\]{max-width:1000px}.flex-grow{flex-grow:1}.select-none{-webkit-user-select:none;user-select:none}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-end{align-items:flex-end}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-10{gap:2.5rem}.gap-12{gap:3rem}.gap-16{gap:4rem}.gap-4{gap:1rem}.gap-5{gap:1.25rem}.gap-6{gap:1.5rem}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.rounded-2xl{border-radius:1rem}.rounded-\[2\.5rem\]{border-radius:2.5rem}.rounded-\[2rem\]{border-radius:2rem}.rounded-\[3rem\]{border-radius:3rem}.rounded-full{border-radius:9999px}.rounded-xl{border-radius:0.75rem}.bg-\[\#1e1b4b\]{--tw-bg-opacity:1;background-color:rgb(30 27 75 / var(--tw-bg-opacity, 1))}.bg-\[\#f36b26\]{--tw-bg-opacity:1;background-color:rgb(243 107 38 / var(--tw-bg-opacity, 1))}.bg-blue-600{--tw-bg-opacity:1;background-color:rgb(37 99 235 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-white\/20{background-color:rgb(255 255 255 / 0.2)}.bg-white\/50{background-color:rgb(255 255 255 / 0.5)}.object-contain{object-fit:contain}.p-6{padding:1.5rem}.p-7{padding:1.75rem}.p-8{padding:2rem}.px-4{padding-left:1rem;padding-right:1rem}.py-12{padding-top:3rem;padding-bottom:3rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.text-center{text-align:center}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-5xl{font-size:3rem;line-height:1}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-\[300px\]{font-size:300px}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-black{font-weight:900}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.uppercase{text-transform:uppercase}.italic{font-style:italic}.leading-none{line-height:1}.leading-relaxed{line-height:1.625}.tracking-tighter{letter-spacing:-0.05em}.tracking-widest{letter-spacing:0.1em}.text-\[\#f36b26\]{--tw-text-opacity:1;color:rgb(243 107 38 / var(--tw-text-opacity, 1))}.text-blue-700{--tw-text-opacity:1;color:rgb(29 78 216 / var(--tw-text-opacity, 1))}.text-blue-900{--tw-text-opacity:1;color:rgb(30 58 138 / var(--tw-text-opacity, 1))}.text-gray-300{--tw-text-opacity:1;color:rgb(209 213 219 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}.text-gray-800\/5{color:rgb(31 41 55 / 0.05)}.text-orange-500{--tw-text-opacity:1;color:rgb(249 115 22 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.opacity-60{opacity:0.6}.shadow-md{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.drop-shadow-2xl{--tw-drop-shadow:drop-shadow(0 25px 25px rgb(0 0 0 / 0.15));filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-xl{--tw-backdrop-blur:blur(24px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.hover\:scale-105:hover{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@media (min-width: 768px){.md\:absolute{position:absolute}.md\:inset-0{inset:0px}.md\:h-\[550px\]{height:550px}.md\:h-full{height:100%}.md\:w-60{width:15rem}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:items-end{align-items:flex-end}.md\:text-right{text-align:right}.md\:text-6xl{font-size:3.75rem;line-height:1}.md\:text-\[500px\]{font-size:500px}}</style></head>
 <body class="py-12 px-4 flex justify-center">
   <div class="noise"></div>
 
   <div class="max-w-[1000px] w-full relative z-10">
 
-    <!-- Top meta -->
     <div class="flex justify-between items-start text-[10px] font-black uppercase tracking-widest mb-8 opacity-60">
       <p>April 29, 2022 — Joined Cognizant</p>
       <p>M365 Infra Developer <i class="fas fa-trash-alt ml-2"></i></p>
     </div>
 
-    <!-- Hero -->
     <div class="relative h-auto md:h-[550px] flex flex-col md:flex-row items-center md:items-end justify-between mb-24 gap-12">
       <div class="w-full md:w-60 p-7 bg-white/50 backdrop-blur-xl rounded-[2.5rem] shadow-xl z-20">
         <img src="bell.png" class="w-14 h-14 mb-5" alt="Alert">
         <h3 class="font-black text-2xl mb-3 italic">About User</h3>
         <p class="text-[11px] font-bold text-gray-700 leading-relaxed">
-          IT professional from Pune with 7+ years of experience. Expert in Microsoft Exchange, M365 migration, and PowerShell automation.
+          IT professional from Pune with experience in Microsoft Exchange, M365 migration, and PowerShell automation.
         </p>
       </div>
 
@@ -57,16 +125,31 @@
           <p class="text-sm font-extrabold text-gray-400 mt-3">Pune, Maharashtra</p>
         </div>
 
-        <div class="bg-white rounded-[2rem] w-36 h-36 p-6 shadow-xl flex flex-col items-center justify-center">
-          <span class="font-black text-4xl text-blue-900 italic">7+</span>
-          <p class="text-[10px] font-black text-gray-300 uppercase">Years Exp.</p>
+        <!-- Experience card with half-ring inside the white background -->
+        <div class="exp-card" aria-hidden="false">
+          <div class="half-ring" id="halfRing">
+            <svg viewBox="0 0 160 80" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Experience progress">
+              <path class="track" d="M10 80 A70 70 0 0 1 150 80"></path>
+              <defs>
+                <linearGradient id="g1" x1="0" x2="1">
+                  <stop offset="0%" stop-color="#0ea5e9"></stop>
+                  <stop offset="100%" stop-color="#4f46e5"></stop>
+                </linearGradient>
+              </defs>
+              <path id="progressPath" class="progress" d="M10 80 A70 70 0 0 1 150 80" stroke="url(#g1)" stroke-dasharray="0 1000"></path>
+            </svg>
+
+            <div class="exp-label" aria-hidden="false">
+              <div class="exp-years" id="yearsText">7+</div>
+              
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Education & Experience -->
+    <!-- Education & Experience sections (kept intact) -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-16 px-4 mb-24">
-      <!-- Education -->
       <div>
         <div class="bounding-header"><span class="gradient-text italic">Education</span></div>
         <div class="space-y-6">
@@ -77,12 +160,12 @@
           </div>
           <div>
             <p class="font-black text-lg">BBA (Business Administration)</p>
-            <p class="text-xs text-gray-500 font-bold">New Arts, Comm & Scie College, Ahmednagar</p>
+            <p class="text-xs text-gray-500 font-bold">New Arts, Comm &amp; Scie College, Ahmednagar</p>
             <p class="text-xs text-gray-400 font-bold">Jun 2013 – Mar 2017 | Grade: B</p>
           </div>
           <div>
             <p class="font-black text-lg">HSC Certification</p>
-            <p class="text-xs text-gray-500 font-bold">New Arts, Comm & Scie College, Ahmednagar</p>
+            <p class="text-xs text-gray-500 font-bold">New Arts, Comm &amp; Scie College, Ahmednagar</p>
             <p class="text-xs text-gray-400 font-bold">Sep 2013 – Jan 2015 | Grade: B</p>
           </div>
           <div>
@@ -93,7 +176,6 @@
         </div>
       </div>
 
-      <!-- Experience -->
       <div>
         <div class="bounding-header"><span class="gradient-text italic">Experience</span></div>
         <div class="space-y-6">
@@ -129,20 +211,63 @@
     <!-- Software Skills -->
     <div class="text-center mb-32">
       <div class="bounding-header"><span class="gradient-text italic">Software Skills</span></div>
-      <div class="flex flex-wrap justify-center gap-5 mt-10">
-        <div class="doc-icon"><img src="Exchange.png" class="w-8 h-8" alt="Exchange"></div>
-        <div class="doc-icon"><img src="Teams.png" class="w-8 h-8" alt="Teams"></div>
-        <div class="doc-icon"><img src="SharePoint.png" class="w-8 h-8" alt="SharePoint"></div>
-        <div class="doc-icon"><img src="OneDrive.png" class="w-8 h-8" alt="OneDrive"></div>
-        <div class="doc-icon"><img src="Powershell.png" class="w-8 h-8" alt="Powershell"></div>
-        <div class="doc-icon"><img src="Security.png" class="w-8 h-8" alt="Security"></div>
-        <div class="doc-icon"><img src="Azure entra ID.png" class="w-8 h-8" alt="Azure"></div>
-        <div class="doc-icon"><img src="Microsoft 365.png" class="w-8 h-8" alt="M365"></div>
-        <div class="doc-icon"><img src="ShareGate-logo.png" class="w-8 h-8" alt="ShareGate"></div>
+      <div class="mt-10 flex flex-wrap justify-center gap-6 px-4">
+        <a class="skill-card" href="https://learn.microsoft.com/exchange" target="_blank" rel="noopener">
+          <div class="skill-icon bg-exchange"><i class="fas fa-envelope"></i></div>
+          <div class="skill-name">Exchange Online</div>
+          <div class="skill-sub">Mail &amp; Migration</div>
+        </a>
+
+        <a class="skill-card" href="https://learn.microsoft.com/microsoftteams" target="_blank" rel="noopener">
+          <div class="skill-icon bg-teams"><i class="fas fa-comments"></i></div>
+          <div class="skill-name">Microsoft Teams</div>
+          <div class="skill-sub">Collaboration</div>
+        </a>
+
+        <a class="skill-card" href="https://learn.microsoft.com/sharepoint" target="_blank" rel="noopener">
+          <div class="skill-icon bg-sharept"><i class="fas fa-folder"></i></div>
+          <div class="skill-name">SharePoint</div>
+          <div class="skill-sub">Intranet &amp; Sites</div>
+        </a>
+
+        <a class="skill-card" href="https://onedrive.live.com" target="_blank" rel="noopener">
+          <div class="skill-icon bg-onedrive"><i class="fas fa-cloud"></i></div>
+          <div class="skill-name">OneDrive</div>
+          <div class="skill-sub">File Sync</div>
+        </a>
+
+        <a class="skill-card" href="https://learn.microsoft.com/powershell" target="_blank" rel="noopener">
+          <div class="skill-icon bg-powershell"><i class="fas fa-terminal"></i></div>
+          <div class="skill-name">PowerShell</div>
+          <div class="skill-sub">Automation</div>
+        </a>
+
+        <a class="skill-card" href="https://learn.microsoft.com/security" target="_blank" rel="noopener">
+          <div class="skill-icon bg-security"><i class="fas fa-shield-alt"></i></div>
+          <div class="skill-name">Security</div>
+          <div class="skill-sub">M365 Security</div>
+        </a>
+
+        <a class="skill-card" href="https://learn.microsoft.com/azure/active-directory" target="_blank" rel="noopener">
+          <div class="skill-icon bg-azure"><i class="fas fa-user-shield"></i></div>
+          <div class="skill-name">Azure Entra ID</div>
+          <div class="skill-sub">Identity</div>
+        </a>
+
+        <a class="skill-card" href="https://www.microsoft.com/microsoft-365" target="_blank" rel="noopener">
+          <div class="skill-icon bg-m365"><i class="fab fa-microsoft"></i></div>
+          <div class="skill-name">Microsoft 365</div>
+          <div class="skill-sub">Platform</div>
+        </a>
+
+        <a class="skill-card" href="https://sharegate.com" target="_blank" rel="noopener">
+          <div class="skill-icon bg-sharegate"><i class="fas fa-database"></i></div>
+          <div class="skill-name">ShareGate</div>
+          <div class="skill-sub">Migration Tool</div>
+        </a>
       </div>
     </div>
 
-    <!-- Projects & Links -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 mb-12">
       <div class="bg-[#f36b26] text-white p-8 rounded-[3rem] h-[400px] flex flex-col justify-between shadow-xl">
         <p class="text-3xl font-black italic">Check My Wix Portfolio</p>
@@ -171,18 +296,90 @@
           <p class="font-black text-sm italic">Teams Admin Associate</p>
         </div>
 
-        <a href="Shubham_Dhadiwal_Resume.docx" download class="bg-[#1e1b4b] text-white p-6 rounded-[2.5rem] shadow-xl flex items-center justify-between">
+        <a href="Shubham_Dhadiwal_Resume.docx" download="" class="bg-[#1e1b4b] text-white p-6 rounded-[2.5rem] shadow-xl flex items-center justify-between">
           <span class="font-black italic">Download Resume</span>
           <span class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center font-black">DL</span>
         </a>
       </div>
     </div>
 
-    <!-- Footer small note -->
     <div class="text-center text-xs text-gray-500 mt-8 mb-6">
       <p class="font-bold">© Shubham Dhadiwal</p>
     </div>
 
   </div>
-</body>
-</html>
+
+  <script>
+    // CONFIG: set your actual experience start date here (year, monthIndex, day)
+    // Example below uses 5 June 2019 (monthIndex 5 = June). Change to your real start date if needed.
+    const experienceStartDate = new Date(2019, 5, 5);
+
+    // maxYears controls how many years correspond to a full semicircle (180deg).
+    // Set to a reasonable cap (e.g., 10 or 12). Adjust if you want different scaling.
+    const maxYears = 10;
+
+    (function animateHalfRing() {
+      const path = document.getElementById('progressPath');
+      const percentText = document.getElementById('percentText');
+      const yearsText = document.getElementById('yearsText');
+
+      function yearsAsOfMay1(now) {
+        const yearNow = now.getFullYear();
+        const mayFirstThisYear = new Date(yearNow, 4, 1); // May 1 (monthIndex 4)
+        let years = yearNow - experienceStartDate.getFullYear();
+        // If current date is before May 1 of this year, subtract 1 (we increment on May 1)
+        if (now < mayFirstThisYear) years -= 1;
+        return Math.max(0, years);
+      }
+
+      function init() {
+        const len = path.getTotalLength();
+        path.style.strokeDasharray = len;
+        path.style.strokeDashoffset = len;
+
+        // compute years completed (increments on May 1 each year)
+        const now = new Date();
+        const yearsCompleted = yearsAsOfMay1(now);
+
+        // display years as "N+" (user wanted plus sign)
+        yearsText.textContent = yearsCompleted + '+';
+
+        // compute ratio for semicircle (0..1)
+        const ratio = Math.min(1, yearsCompleted / maxYears);
+        const targetOffset = len * (1 - ratio);
+
+        const duration = 1200;
+        const start = performance.now();
+
+        function easeOutCubic(t){ return 1 - Math.pow(1 - t, 3); }
+
+        function frame(nowTime) {
+          const t = Math.min(1, (nowTime - start) / duration);
+          const eased = easeOutCubic(t);
+          const currentOffset = len - (len - targetOffset) * eased;
+          path.style.strokeDashoffset = currentOffset;
+
+          // percent of semicircle filled (0..100)
+          const percent = Math.round(ratio * 100 * eased);
+          percentText.textContent = percent + '% complete';
+
+          yearsText.style.transform = `scale(${1 + 0.02 * eased})`;
+
+          if (t < 1) requestAnimationFrame(frame);
+          else {
+            path.style.strokeDashoffset = targetOffset;
+            percentText.textContent = Math.round(ratio * 100) + '% complete';
+            yearsText.style.transform = 'scale(1)';
+          }
+        }
+
+        requestAnimationFrame(frame);
+      }
+
+      if (document.readyState === 'complete') init();
+      else window.addEventListener('load', init);
+    })();
+  </script>
+
+
+</body></html>
