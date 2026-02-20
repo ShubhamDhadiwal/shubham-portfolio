@@ -8,21 +8,18 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
-        body { background-color: #e4e6eb; font-family: 'Plus Jakarta Sans', sans-serif; color: #111; overflow-x: hidden; }
-        
-        /* Grainy Texture */
+        body { background-color: #e4e6eb; font-family: 'Plus Jakarta Sans', sans-serif; color: #111; overflow-x: hidden; transition: all 0.3s ease; }
         .noise { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 50; opacity: 0.05; background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="n"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23n)"/%3E%3C/svg%3E'); }
-
-        /* Bounding Box Headers */
         .bounding-header { position: relative; display: inline-block; border: 1px solid #3b82f6; padding: 4px 14px; margin-bottom: 2rem; }
         .bounding-header::before, .bounding-header::after { content: ''; position: absolute; width: 6px; height: 6px; background: #3b82f6; }
         .bounding-header::before { top: -3px; left: -3px; }
         .bounding-header::after { bottom: -3px; right: -3px; }
         .gradient-text { background: linear-gradient(90deg, #4f46e5, #0ea5e9); -webkit-background-clip: text; color: transparent; font-weight: 800; font-size: 1.25rem; }
-
-        /* Skill Icon Shape */
-        .doc-icon { border: 2px solid #111; border-radius: 8px; border-top-right-radius: 18px; position: relative; width: 55px; height: 70px; display: flex; align-items: center; justify-content: center; background: white; }
+        .doc-icon { border: 2px solid #111; border-radius: 8px; border-top-right-radius: 18px; position: relative; width: 55px; height: 70px; display: flex; align-items: center; justify-content: center; background: white; transition: all 0.3s ease; }
         .doc-icon::after { content: ''; position: absolute; top: -2px; right: -2px; width: 18px; height: 18px; border-bottom: 2px solid #111; border-left: 2px solid #111; border-bottom-left-radius: 8px; background: #e4e6eb; }
+        
+        /* Animation Classes */
+        .card-shadow { transition: transform 0.1s ease-out, box-shadow 0.3s ease; }
     </style>
 </head>
 <body class="py-12 px-4 flex justify-center">
@@ -32,11 +29,11 @@
         
         <div class="flex justify-between items-start text-[10px] font-black uppercase tracking-widest mb-8 opacity-60">
             <p>April 29, 2022 — Joined Cognizant</p>
-            <p>M365 Infra Developer <i class="fas fa-trash-alt ml-2"></i></p>
+            <p>M365 Infra Developer</p>
         </div>
 
         <div class="relative h-auto md:h-[550px] flex flex-col md:flex-row items-center md:items-end justify-between mb-24 gap-12">
-            <div class="w-full md:w-60 p-7 bg-white/50 backdrop-blur-xl rounded-[2.5rem] shadow-xl z-20">
+            <div class="w-full md:w-60 p-7 bg-white/50 backdrop-blur-xl rounded-[2.5rem] shadow-xl z-20 card-shadow">
                 <img src="bell.png" class="w-14 h-14 mb-5" alt="Alert">
                 <h3 class="font-black text-2xl mb-3 italic">About User</h3>
                 <p class="text-[11px] font-bold text-gray-700 leading-relaxed">
@@ -52,10 +49,11 @@
             <div class="flex flex-col items-center md:items-end gap-10 z-20">
                 <div class="text-center md:text-right">
                     <h1 class="text-5xl md:text-6xl font-black leading-none tracking-tighter">Shubham<br>Dhadiwal</h1>
-                    <p class="text-sm font-extrabold text-gray-400 mt-3">Pune, Maharashtra</p>
+                    <p id="typing-text" class="text-blue-600 font-extrabold mt-3 h-5 italic"></p>
+                    <p class="text-sm font-extrabold text-gray-400">Pune, Maharashtra</p>
                 </div>
 
-                <div class="bg-white rounded-[2rem] w-36 h-36 p-6 shadow-xl flex flex-col items-center justify-center">
+                <div class="bg-white rounded-[2rem] w-36 h-36 p-6 shadow-xl flex flex-col items-center justify-center card-shadow">
                     <span class="font-black text-4xl text-blue-900 italic">7+</span>
                     <p class="text-[10px] font-black text-gray-300 uppercase">Years Exp.</p>
                 </div>
@@ -65,29 +63,16 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-16 px-4 mb-24">
             <div>
                 <div class="bounding-header"><span class="gradient-text italic">Education</span></div>
-                <div class="space-y-6">
-                    <div>
-                        <p class="font-black text-lg">BBA (Business Admin)</p>
-                        <p class="text-xs text-gray-500 font-bold">New Arts, Comm & Scie College, Ahmednagar</p>
-                    </div>
-                    <div>
-                        <p class="font-black text-lg">HSC Certification</p>
-                        <p class="text-xs text-gray-500 font-bold">New Arts, Comm & Scie College</p>
-                    </div>
+                <div class="space-y-4">
+                    <p class="font-black text-lg">BBA (Business Admin)</p>
+                    <p class="text-xs text-gray-500 font-bold">New Arts, Comm & Scie College</p>
                 </div>
             </div>
-
             <div>
                 <div class="bounding-header"><span class="gradient-text italic">Organization</span></div>
-                <div class="space-y-6">
-                    <div>
-                        <p class="font-black text-lg">Open Arms Social Foundation</p>
-                        <p class="text-xs text-gray-500 font-bold">Environmental Awareness & Welfare</p>
-                    </div>
-                    <div>
-                        <p class="font-black text-lg">Tech Lead</p>
-                        <p class="text-xs text-gray-500 font-bold">Cognizant Technology India Pvt Ltd</p>
-                    </div>
+                <div class="space-y-4">
+                    <p class="font-black text-lg">Tech Lead @ Cognizant</p>
+                    <p class="text-xs text-gray-500 font-bold">Pune, India (2022-Present)</p>
                 </div>
             </div>
         </div>
@@ -95,91 +80,80 @@
         <div class="text-center mb-32">
             <div class="bounding-header"><span class="gradient-text italic">Software Skills</span></div>
             <div class="flex flex-wrap justify-center gap-5 mt-10">
-                <div class="doc-icon"><img src="Exchange.png" class="w-8 h-8" alt="Exchange"></div>
-                <div class="doc-icon"><img src="Teams.png" class="w-8 h-8" alt="Teams"></div>
-                <div class="doc-icon"><img src="SharePoint.png" class="w-8 h-8" alt="SharePoint"></div>
-                <div class="doc-icon"><img src="OneDrive.png" class="w-8 h-8" alt="OneDrive"></div>
-                <div class="doc-icon"><img src="Powershell.png" class="w-8 h-8" alt="PS"></div>
-                <div class="doc-icon"><img src="Security.png" class="w-8 h-8" alt="Security"></div>
-                <div class="doc-icon"><img src="Azure entra ID.png" class="w-8 h-8" alt="Azure"></div>
-                <div class="doc-icon"><img src="Microsoft 365.png" class="w-8 h-8" alt="M365"></div>
-                <div class="doc-icon"><img src="ShareGate-logo.png" class="w-8 h-8" alt="SG"></div>
+                <div class="doc-icon hover:scale-110"><img src="Exchange.png" class="w-8 h-8" alt="Exchange"></div>
+                <div class="doc-icon hover:scale-110"><img src="Teams.png" class="w-8 h-8" alt="Teams"></div>
+                <div class="doc-icon hover:scale-110"><img src="SharePoint.png" class="w-8 h-8" alt="SharePoint"></div>
+                <div class="doc-icon hover:scale-110"><img src="OneDrive.png" class="w-8 h-8" alt="OneDrive"></div>
+                <div class="doc-icon hover:scale-110"><img src="Powershell.png" class="w-8 h-8" alt="PS"></div>
+                <div class="doc-icon hover:scale-110"><img src="Security.png" class="w-8 h-8" alt="Security"></div>
+                <div class="doc-icon hover:scale-110"><img src="Azure entra ID.png" class="w-8 h-8" alt="Azure"></div>
+                <div class="doc-icon hover:scale-110"><img src="Microsoft 365.png" class="w-8 h-8" alt="M365"></div>
+                <div class="doc-icon hover:scale-110"><img src="ShareGate-logo.png" class="w-8 h-8" alt="SG"></div>
             </div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 px-4">
-            <div class="bg-[#f36b26] text-white p-8 rounded-[3rem] h-[400px] flex flex-col justify-between shadow-xl">
+            <div class="bg-[#f36b26] text-white p-8 rounded-[3rem] h-[400px] flex flex-col justify-between shadow-xl card-shadow">
                 <p class="text-3xl font-black italic">Check My Wix Portfolio</p>
                 <a href="https://shubhamdhadiwal.wixsite.com/portfolio" target="_blank" class="bg-white text-[#f36b26] text-[10px] font-black px-6 py-4 rounded-full text-center uppercase">shubham-portfolio</a>
             </div>
-
             <div class="flex flex-col gap-6">
-                <div class="bg-white rounded-full py-4 px-6 shadow-md text-xs font-black truncate">
+                <div class="bg-white rounded-full py-4 px-6 shadow-md text-xs font-black truncate card-shadow">
                     Shubham.Dhadiwal@outlook.com
                 </div>
-                <div class="bg-white p-8 rounded-[3rem] flex-grow shadow-xl">
+                <div class="bg-white p-8 rounded-[3rem] flex-grow shadow-xl card-shadow">
                     <p class="font-black italic mb-4">SLA365 Monitoring</p>
-                    <p class="text-[10px] text-gray-400 mb-6 font-bold">Cognizant VibeCoding Event | Personal Project</p>
                     <a href="https://sla365.lovable.app" target="_blank" class="bg-blue-600 text-white text-[10px] text-center font-black py-4 rounded-2xl block uppercase">Launch Project</a>
                 </div>
             </div>
-
             <div class="flex flex-col gap-6">
-                <a href="https://www.linkedin.com/in/er-shubham-dhadiwal" target="_blank" class="bg-white p-8 rounded-[3rem] shadow-xl flex flex-col items-center hover:scale-105 transition-transform">
+                <a href="https://www.linkedin.com/in/er-shubham-dhadiwal" target="_blank" class="bg-white p-8 rounded-[3rem] shadow-xl flex flex-col items-center card-shadow">
                     <i class="fab fa-linkedin text-blue-700 text-5xl mb-4"></i>
-                    <p class="font-black text-center italic">er-shubham-dhadiwal</p>
+                    <p class="font-black text-center italic">LinkedIn Profile</p>
                 </a>
-                
-                <div class="bg-white p-6 rounded-[2rem] shadow-md flex items-center gap-4">
-                    <i class="fas fa-shield-alt text-orange-500 text-2xl"></i>
-                    <p class="font-black text-sm italic">Teams Admin Associate</p>
-                </div>
-
-                <a href="Shubham_Dhadiwal_Resume.docx" download class="bg-[#1e1b4b] text-white p-6 rounded-[2.5rem] shadow-xl flex items-center justify-between">
+                <a href="Shubham_Dhadiwal_Resume.docx" download class="bg-[#1e1b4b] text-white p-8 rounded-[3rem] shadow-xl flex items-center justify-between card-shadow">
                     <span class="font-black italic">Download Resume</span>
                     <span class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center font-black">DL</span>
                 </a>
             </div>
         </div>
     </div>
+
     <script>
-    // 1. Typing Effect for your Title
-    const text = "M365 Infra Developer & PowerShell Expert";
-    let index = 0;
-    const speed = 100;
+        // 1. Typing Effect Logic
+        const textToType = "M365 Infra Developer & PowerShell Expert";
+        let charIndex = 0;
+        const typingSpeed = 100;
 
-    function typeEffect() {
-        if (index < text.length) {
-            document.getElementById("typing-text").innerHTML += text.charAt(index);
-            index++;
-            setTimeout(typeEffect, speed);
+        function startTyping() {
+            const target = document.getElementById("typing-text");
+            if (charIndex < textToType.length) {
+                target.innerHTML += textToType.charAt(charIndex);
+                charIndex++;
+                setTimeout(startTyping, typingSpeed);
+            }
         }
-    }
 
-    // 2. 3D Tilt Effect for Bento Cards (UX Touch)
-    const cards = document.querySelectorAll('.card-shadow');
-    cards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            
-            const rotateX = (y - centerY) / 10;
-            const rotateY = (centerX - x) / 10;
-            
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        // 2. 3D Card Tilt Effect
+        const bentoCards = document.querySelectorAll('.card-shadow');
+        bentoCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (y - centerY) / 15;
+                const rotateY = (centerX - x) / 15;
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
+            });
         });
-        
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
-        });
-    });
 
-    window.onload = typeEffect;
+        // Run when page loads
+        window.onload = startTyping;
     </script>
-    
 </body>
 </html>
