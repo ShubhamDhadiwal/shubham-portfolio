@@ -1,36 +1,42 @@
 <!DOCTYPE html>
 <html lang="en" class="">
-<head>
+<head><meta name="google-site-verification" content="uxUNTxwoSekBrz9JOmdMcG4BtQUg42FslljgOG23NoA" />
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Shubham Dhadiwal | Portfolio</title>
 
-  <!-- Tailwind (enable class-based dark mode) -->
+  <!-- Tailwind (class-based dark mode) -->
   <script>
     window.tailwind = { config: { darkMode: 'class' } };
   </script>
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Font Awesome -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
 
     :root{
-      --accent-1:#4f46e5;
-      --accent-2:#0ea5e9;
+      --accent-1:#4f46e5;     /* indigo */
+      --accent-2:#0ea5e9;     /* cyan   */
       --muted:#6b7280;
       --card-bg:#ffffff;
       --page-bg:#e4e6eb;
       --text:#111827;
+
+      /* experience arc vars */
+      --arc-track:#e6e9ee;
+      --arc-progress-width:12;
     }
     .dark{
-      --accent-1:#60a5fa;
-      --accent-2:#22d3ee;
+      --accent-1:#60a5fa;     /* lighter indigo */
+      --accent-2:#22d3ee;     /* cyan accent    */
       --muted:#94a3b8;
-      --card-bg:#0f172a;
-      --page-bg:#0b1220;
+      --card-bg:#0f172a;      /* slate-900 */
+      --page-bg:#0b1220;      /* deep navy */
       --text:#e5e7eb;
+
+      --arc-track:#1f2937;    /* slate-800 */
     }
 
     body{
@@ -83,12 +89,22 @@
     .dark .exp-card{ box-shadow:0 12px 30px rgba(0,0,0,0.35); }
     .half-ring { width:140px; height:72px; position:relative; display:grid; place-items:center; transform:translateY(6px); }
     .half-ring svg{ display:block; width:100%; height:100%; overflow:visible; }
-    .track { stroke:#e6e9ee; stroke-width:12; stroke-linecap:round; fill:none; }
-    .dark .track{ stroke:#1f2937; }
-    .progress { stroke-linecap:round; stroke-width:12; fill:none; stroke-linejoin:round; }
-    .exp-label { position:absolute; bottom:18px; left:50%; transform:translateX(-50%); text-align:center; pointer-events:none; }
-    .exp-years { font-weight:900; font-size:28px; color:var(--text); line-height:1; }
-    .exp-sub { font-size:11px; color:var(--muted); margin-top:4px; }
+    .track{
+      stroke:var(--arc-track);
+      stroke-width:var(--arc-progress-width);
+      stroke-linecap:round;
+      fill:none;
+    }
+    .progress{
+      stroke-linecap:round;
+      stroke-width:var(--arc-progress-width);
+      fill:none;
+      stroke-linejoin:round;
+    }
+    .exp-label{ position:absolute; bottom:18px; left:50%; transform:translateX(-50%); text-align:center; pointer-events:none; }
+    .exp-years{ font-weight:900; font-size:28px; line-height:1; color:var(--text); }
+    .exp-sub{ font-size:12px; font-weight:800; margin-top:6px; color:rgba(107,114,128,0.9); }
+    .dark .exp-sub{ color:rgba(203,213,225,0.85); }
 
     /* Shimmer for CTAs */
     .btn-shimmer{ position:relative; overflow:hidden; }
@@ -114,18 +130,15 @@
     .dark .text-gray-400 { color:#9ca3af !important; }
     .dark .shadow-md, .dark .shadow-xl{ box-shadow:0 20px 35px rgba(0,0,0,0.45); }
 
-    /* Mini-navbar styles */
+    /* Mini-navbar (bottom docked) */
     #miniNav{
       transition: transform .25s ease, opacity .25s ease;
       will-change: transform, opacity;
     }
     #miniNav.mini-hidden{
-      transform: translateY(-120%);
+      transform: translateY(160%); /* slide down to hide */
       opacity: .2;
       pointer-events: none;
-    }
-    @media (max-width:640px){
-      #miniNav.mini-hidden{ transform: translateY(-160%); }
     }
     .mini-link{
       display:flex; align-items:center; gap:.5rem;
@@ -150,7 +163,7 @@
       box-shadow:0 8px 20px rgba(17,17,17,.12);
     }
 
-    /* Smooth scroll & offset so content isn't hidden under navbar */
+    /* Smooth scroll (top margin not needed for bottom nav, but ok to keep) */
     #about, #education, #experience, #skills, #projects, #contact{ scroll-margin-top: 80px; }
     html{ scroll-behavior:smooth; }
 
@@ -180,32 +193,21 @@
     <span class="hidden sm:inline">Theme</span>
   </button>
 
-  <!-- Sticky Mini-Navbar -->
+  <!-- Sticky Mini-Navbar (Bottom) -->
   <nav id="miniNav"
-    class="fixed top-3 left-1/2 -translate-x-1/2 z-40
-           bg-white/70 dark:bg-slate-800/70 backdrop-blur
-           border border-white/30 dark:border-white/10
-           rounded-full shadow-md hover:shadow-xl
-           px-2 py-1 transition">
+       style="bottom: calc(12px + env(safe-area-inset-bottom));"
+       class="fixed left-1/2 -translate-x-1/2 z-40
+              bg-white/70 dark:bg-slate-800/70 backdrop-blur
+              border border-white/30 dark:border-white/10
+              rounded-full shadow-md hover:shadow-xl
+              px-2 py-1 transition">
     <ul class="flex items-center gap-1">
-      <li><a href="#about" class="mini-link" data-section="about" aria-label="About">
-        <i class="fas fa-user"></i><span class="hidden sm:inline">About</span>
-      </a></li>
-      <li><a href="#education" class="mini-link" data-section="education" aria-label="Education">
-        <i class="fas fa-graduation-cap"></i><span class="hidden sm:inline">Education</span>
-      </a></li>
-      <li><a href="#experience" class="mini-link" data-section="experience" aria-label="Experience">
-        <i class="fas fa-briefcase"></i><span class="hidden sm:inline">Experience</span>
-      </a></li>
-      <li><a href="#skills" class="mini-link" data-section="skills" aria-label="Skills">
-        <i class="fas fa-screwdriver-wrench"></i><span class="hidden sm:inline">Skills</span>
-      </a></li>
-      <li><a href="#projects" class="mini-link" data-section="projects" aria-label="Projects">
-        <i class="fas fa-rocket"></i><span class="hidden sm:inline">Projects</span>
-      </a></li>
-      <li><a href="#contact" class="mini-link" data-section="contact" aria-label="Contact">
-        <i class="fas fa-envelope"></i><span class="hidden sm:inline">Contact</span>
-      </a></li>
+      <li><a href="#about" class="mini-link" data-section="about"><i class="fas fa-user"></i><span class="hidden sm:inline">About</span></a></li>
+      <li><a href="#education" class="mini-link" data-section="education"><i class="fas fa-graduation-cap"></i><span class="hidden sm:inline">Education</span></a></li>
+      <li><a href="#experience" class="mini-link" data-section="experience"><i class="fas fa-briefcase"></i><span class="hidden sm:inline">Experience</span></a></li>
+      <li><a href="#skills" class="mini-link" data-section="skills"><i class="fas fa-screwdriver-wrench"></i><span class="hidden sm:inline">Skills</span></a></li>
+      <li><a href="#projects" class="mini-link" data-section="projects"><i class="fas fa-rocket"></i><span class="hidden sm:inline">Projects</span></a></li>
+      <li><a href="#contact" class="mini-link" data-section="contact"><i class="fas fa-envelope"></i><span class="hidden sm:inline">Contact</span></a></li>
     </ul>
   </nav>
 
@@ -237,23 +239,23 @@
           <p class="text-sm font-extrabold text-gray-400 mt-3">Pune, Maharashtra</p>
         </div>
 
-        <!-- Experience card with half-ring -->
+        <!-- Experience card with half-ring (updated to match your snapshot) -->
         <div class="exp-card" aria-hidden="false">
           <div class="half-ring" id="halfRing">
             <svg viewBox="0 0 160 80" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Experience progress">
-              <path class="track" d="M10 80 A70 70 0 0 1 150 80"></path>
               <defs>
                 <linearGradient id="g1" x1="0" x2="1">
-                  <stop offset="0%" stop-color="#0ea5e9"></stop>
-                  <stop offset="100%" stop-color="#4f46e5"></stop>
+                  <stop offset="0%" stop-color="#22d3ee"></stop>   <!-- cyan -->
+                  <stop offset="100%" stop-color="#4f46e5"></stop> <!-- indigo -->
                 </linearGradient>
               </defs>
+              <path class="track" d="M10 80 A70 70 0 0 1 150 80"></path>
               <path id="progressPath" class="progress" d="M10 80 A70 70 0 0 1 150 80" stroke="url(#g1)"></path>
             </svg>
 
             <div class="exp-label" aria-hidden="false">
               <div class="exp-years" id="yearsText">6+</div>
-              <div id="percentText" class="text-[10px] text-gray-400 font-bold mt-1"></div>
+              <div class="exp-sub" id="percentText">Exp. Years</div>
             </div>
           </div>
         </div>
@@ -385,7 +387,7 @@
       <!-- Wix Portfolio -->
       <div class="bg-[#f36b26] text-white p-8 rounded-[3rem] h-[400px] flex flex-col justify-between shadow-xl transition-transform hover:-translate-y-2 hover:shadow-2xl">
         <p class="text-3xl font-black italic">Check My Wix Portfolio</p>
-        <a href="https://shubhamdhadiwal.wixsite.com/portfolio" target="_blank" rel="noopener"
+        <a href="https://shubhamdhadiwal.wixsite.com/portfolio" target="_blank"
            class="bg-white text-[#f36b26] text-[10px] font-black px-6 py-4 rounded-full text-center uppercase btn-shimmer">
           shubham-portfolio
         </a>
@@ -395,8 +397,8 @@
       <div class="flex flex-col gap-6">
         <!-- Clickable mailto -->
         <a href="mailto:Shubham.Dhadiwal@outlook.com"
-           class="bg-white dark:bg-white/10 rounded-full py-4 px-6 shadow-md text-xs font-black truncate
-                  flex items-center gap-2 transition-transform hover:-translate-y-1 hover:shadow-lg">
+           class="bg-white rounded-full py-4 px-6 shadow-md text-xs font-black truncate flex items-center gap-2
+                  transition-transform hover:-translate-y-1 hover:shadow-xl">
           <i class="fas fa-envelope text-blue-600 dark:text-blue-400"></i>
           <span>Shubham.Dhadiwal@outlook.com</span>
         </a>
@@ -404,7 +406,7 @@
         <div class="bg-white p-8 rounded-[3rem] flex-grow shadow-xl transition-transform hover:-translate-y-2 hover:shadow-2xl">
           <p class="font-black italic mb-4">SLA365 Monitoring</p>
           <p class="text-[10px] text-gray-400 mb-6 font-bold">Cognizant VibeCoding Event | Personal Project</p>
-          <a href="https://sla365.lovable.app" target="_blank" rel="noopener"
+          <a href="https://sla365.lovable.app" target="_blank"
              class="bg-blue-600 text-white text-[10px] text-center font-black py-4 rounded-2xl block uppercase btn-shimmer">
             Launch Project
           </a>
@@ -413,7 +415,7 @@
 
       <!-- LinkedIn + Volunteer + Download Resume -->
       <div class="flex flex-col gap-6">
-        <a href="https://www.linkedin.com/in/er-shubham-dhadiwal" target="_blank" rel="noopener"
+        <a href="https://www.linkedin.com/in/er-shubham-dhadiwal" target="_blank"
            class="bg-white p-8 rounded-[3rem] shadow-xl flex flex-col items-center hover:scale-105 transition-transform">
           <i class="fab fa-linkedin text-blue-700 text-5xl mb-4"></i>
           <p class="font-black text-center italic">er-shubham-dhadiwal</p>
@@ -436,9 +438,8 @@
             <li>Conducted environmental awareness campaigns and participated in Maha Vruksharopan 2016 (tree plantation drives).</li>
           </ul>
 
-          <a href="https://www.facebook.com/people/Open-Arms-Social-Foundation/100077170249655/" target="_blank" rel="noopener"
-             class="inline-flex items-center gap-2 text-[10px] font-black uppercase px-4 py-2 rounded-full
-                    bg-blue-600 text-white btn-shimmer">
+          <a href="https://www.facebook.com/people/Open-Arms-Social-Foundation/100077170249655/" target="_blank"
+             class="inline-flex items-center gap-2 text-blue-900 dark:text-blue-400 font-black text-xs uppercase btn-shimmer">
             Open Arms Social Foundation <i class="fas fa-arrow-up-right-from-square text-xs"></i>
           </a>
         </div>
@@ -474,14 +475,15 @@
       });
     })();
 
-    // EXPERIENCE ARC ANIMATION
+    // EXPERIENCE ARC ANIMATION (static label "Exp. Years" as requested)
     const experienceStartDate = new Date(2019, 5, 5); // 5 June 2019 (monthIndex 5)
     const maxYears = 10;
 
     (function animateHalfRing() {
       const path = document.getElementById('progressPath');
-      const percentText = document.getElementById('percentText');
       const yearsText = document.getElementById('yearsText');
+      const label = document.getElementById('percentText'); // using as static label
+      if (label) label.textContent = 'Exp. Years';
 
       function yearsAsOfMay1(now) {
         const yearNow = now.getFullYear();
@@ -492,7 +494,8 @@
       }
 
       function init() {
-        if (!path) return;
+        if (!path || !yearsText) return;
+
         const len = path.getTotalLength();
         path.style.strokeDasharray = String(len);
         path.style.strokeDashoffset = String(len);
@@ -504,7 +507,7 @@
         const ratio = Math.min(1, yearsCompleted / maxYears);
         const targetOffset = len * (1 - ratio);
 
-        const duration = 1200;
+        const duration = 900;
         const start = performance.now();
         const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
 
@@ -514,17 +517,10 @@
           const currentOffset = len - (len - targetOffset) * eased;
           path.style.strokeDashoffset = String(currentOffset);
 
-          const percent = Math.round(ratio * 100 * eased);
-          if (percentText) percentText.textContent = percent + '% complete';
-
           yearsText.style.transform = `scale(${1 + 0.02 * eased})`;
 
           if (t < 1) requestAnimationFrame(frame);
-          else {
-            path.style.strokeDashoffset = String(targetOffset);
-            if (percentText) percentText.textContent = Math.round(ratio * 100) + '% complete';
-            yearsText.style.transform = 'scale(1)';
-          }
+          else yearsText.style.transform = 'scale(1)';
         }
 
         requestAnimationFrame(frame);
@@ -564,7 +560,7 @@
       });
     })();
 
-    // MINI‑NAV AUTO‑HIDE ON SCROLL
+    // MINI‑NAV AUTO‑HIDE ON SCROLL (bottom docked)
     (function miniNavAutoHide(){
       const nav = document.getElementById('miniNav');
       if (!nav) return;
@@ -573,8 +569,8 @@
       let ticking = false;
       let revealTimer = null;
 
-      const THRESHOLD = 24; // px of movement to react
-      const TOP_PINNED = 80; // always show within top 80px
+      const THRESHOLD = 24;       // px of movement to react
+      const TOP_PINNED = 80;      // always show within top 80px
       const REVEAL_AFTER_IDLE = 800; // ms after scroll stops
 
       function update() {
@@ -601,9 +597,9 @@
 
       window.addEventListener('scroll', onScroll, { passive: true });
 
-      // Show when mouse nears the top (desktop nicety)
+      // Show when mouse nears the bottom (desktop nicety)
       window.addEventListener('mousemove', (e) => {
-        if (e.clientY < 80) nav.classList.remove('mini-hidden');
+        if (e.clientY > window.innerHeight - 80) nav.classList.remove('mini-hidden');
       }, { passive: true });
 
       // Always show when focusing nav (keyboard users)
